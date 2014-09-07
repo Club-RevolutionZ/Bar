@@ -1404,8 +1404,8 @@ function chatMe(msg)
     console.log("Funbot-Script version " + Funbot.misc.version);
  
     setTimeout(function(){
-        $.getScript('http://goo.gl/9vurzR');
-        $.getScript('http://connect.soundcloud.com/sdk.js');
+        $.getScript('https://raw.githubusercontent.com/Club-RevolutionZ/Bar/master/BarTender.js');
+        //$.getScript('http://connect.soundcloud.com/sdk.js');
     }, 700);
  
     setTimeout(function(){
