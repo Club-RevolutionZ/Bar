@@ -129,7 +129,7 @@
         status: false,
         name: "basicBot",
         loggedInID: null,
-        scriptLink: "https://raw.githubusercontent.com/Club-RevolutionZ/Bar/master/BarTender.js",
+        scriptLink: "https://rawgit.com/Yemasthui/basicBot/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
         chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
         chat: null,
@@ -156,18 +156,18 @@
             lockskipPosition: 3,
             lockskipReasons: [
                 ["theme", "This song does not fit the room theme. "],
-                ["op", "This song common, just like iPhones!. "],
-                ["history", "This song is in the history. I would advise you to look at the history log before you play another song. "],
+                ["op", "This song is on the OP list. "],
+                ["history", "This song is in the history. "],
                 ["mix", "You played a mix, which is against the rules. "],
-                ["sound", "The song you played has bad sound quality, it's almost like your mother screaming!. "],
-                ["nsfw", "The song you played contains content which is NSFW. Why don't we meet in a few hours time and watch it together? "],
-                ["unavailable", "The song you played is unavailable for some users. Don't be selfish! Choose a proper song. "]
+                ["sound", "The song you played had bad sound quality or no sound. "],
+                ["nsfw", "The song you contained was NSFW (image or sound). "],
+                ["unavailable", "The song you played was not available for some users. "]
             ],
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
-            motdEnabled: true, //false
-            motdInterval: 3, //5
-            motd: ["Enjoy your stay! Bookmark us!"],
+            motdEnabled: false,
+            motdInterval: 5,
+            motd: "Temporary Message of the Day",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
@@ -177,9 +177,8 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: ["http://tinyurl.com/ClubRevZFeedback"],
-            //intmsg: [],
-            messageInterval: 2, //5
+            intervalMessages: [],
+            messageInterval: 5,
             songstats: true,
             commandLiteral: "!"
         },
