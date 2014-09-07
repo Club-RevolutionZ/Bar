@@ -72,7 +72,7 @@ Funbot.settings.ruleSkip = true;
 Funbot.settings.removedFilter = true;
 
 // Admins ID
-Funbot.admins = ["50aeaeb6c3b97a2cb4c25bd2"];
+Funbot.admins = ["50aeaeb6c3b97a2cb4c25bd2","Lord_Tryzalot","Deejay NexusRevZ"];
 
 // Random announcements.
 var announcements = 
