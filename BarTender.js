@@ -167,7 +167,7 @@
             afkRankCheck: "ambassador",
             motdEnabled: true, //false
             motdInterval: 3, //5
-            motd: "Enjoy your stay! Bookmark us!",
+            motd: ["Enjoy your stay! Bookmark us!"],
             filterChat: true,
             etaRestriction: false,
             welcome: true,
