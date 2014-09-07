@@ -129,7 +129,7 @@
         status: false,
         name: "basicBot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/blob/master/BarTender.js",
+        scriptLink: "https://rawgit.com/Yemasthui/basicBot/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
         chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
         chat: null,
@@ -153,7 +153,8 @@
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
-3          lockskipReasons: [
+            lockskipPosition: 3,
+            lockskipReasons: [
                 ["theme", "This song does not fit the room theme. "],
                 ["op", "This song is on the OP list. "],
                 ["history", "This song is in the history. "],
@@ -164,9 +165,9 @@
             ],
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
-            motdEnabled: true,//false
-            motdInterval: 1, //5
-            motd: "TemporDay",
+            motdEnabled: false,
+            motdInterval: 5,
+            motd: "Temporary Message of the Day",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
