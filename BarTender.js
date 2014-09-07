@@ -448,7 +448,7 @@ function chatMe(msg)
                     command[1] = command[1] + ' ' + command[i];
                 }
             }
-            if(Funbot.misc.ready || Funbot.admins.indexOf(fromID) > -1 || API.getUser(data.fromID).permission > 1 || API.getUser(fromID).permission < 2){
+            if(Funbot.misc.ready || Funbot.admins.indexOf(fromID) > -1 || API.getHost(data.fromID).permission > 1 || API.getHost(fromID).permission < 2){
                 switch(command[0].toLowerCase()){
  
                 case "command":
@@ -461,7 +461,7 @@ function chatMe(msg)
                         break;
                 
                 case "test":
-                        if(API.getUsers.indexOf(Funbot.admins) > 1){
+                        if(API.getHost.indexOf(Funbot.admins) > 1){
                             API.sendChat("@"+ data.from +" Test Successful");
                             }else{
                             API.sendChat("This command requires Admins only!");
@@ -469,7 +469,7 @@ function chatMe(msg)
                         break;
                         
                 case "ping":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.sendChat("@"+ data.from +" Pong!");
                             }else{
                             API.sendChat("This command requires staff members only!");
@@ -477,7 +477,7 @@ function chatMe(msg)
                         break;
                         
                 case "marco":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.sendChat("@"+ data.from +" Polo!");
                             }else{
                             API.sendChat("This command requires staff members only!");
@@ -485,7 +485,7 @@ function chatMe(msg)
                         break;        
                         
                 case "skip":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.skip();
                         }else{
                            API.sendChat("This command requires staff members only!");
@@ -493,7 +493,7 @@ function chatMe(msg)
                         break;
                         
                 case "unlock":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.moderateLockWaitList(false);
                         }else{
                            API.sendChat("This command requires staff members only!");
@@ -501,19 +501,19 @@ function chatMe(msg)
                         break;
                         
                 case "add":
-                        if(API.getUser(fromID).permission < 2 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission < 2 || Funbot.admins.indexOf(fromID) > -1){
                             API.moderateAddDJ(data.fromID);
                         }
                         break;
                         
                 case "remove":
-                        if(API.getUser(fromID).permission < 2 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission < 2 || Funbot.admins.indexOf(fromID) > -1){
                             API.moderateRemoveDJ(data.fromID);
                         }
                         break;
                         
                 case "ban":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             var username = msg.substr(msg.indexOf('@')+1);
                             var userid = getUserID(username);
                             API.moderateBanUser(userid, 0, API.BAN.HOUR);
@@ -523,7 +523,7 @@ function chatMe(msg)
                         break;
                         
                 case "queup":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             var username = msg.substr(msg.indexOf('@')+1);
                             var userid = getUserID(username);
                             API.moderateAddDJ(userid);
@@ -533,7 +533,7 @@ function chatMe(msg)
                         break;
                         
                 case "quedown":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             var username = msg.substr(msg.indexOf('@')+1);
                             var userid = getUserID(username);
                             API.moderateRemoveDJ(userid);
@@ -543,7 +543,7 @@ function chatMe(msg)
                         break;
                         
                 case "lock":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.moderateLockWaitList(true);
                         }else{
                            API.sendChat("This command requires staff members only!");
@@ -551,7 +551,7 @@ function chatMe(msg)
                         break;         
                         
                 case "lockskip":
-                       if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.moderateLockWaitList(true);
                             setTimeout("Funbot.skip();", 100);
                             setTimeout("API.moderateLockWaitList(false);", 700);
@@ -561,7 +561,7 @@ function chatMe(msg)
                         break;
                   
                 case "say":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1 || typeof command[1] === "undefined"){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1 || typeof command[1] === "undefined"){
                            API.sendChat(command[1]);
                         }else{
                          API.sendChat("This command requires staff members only!");
@@ -582,7 +582,7 @@ function chatMe(msg)
                         
                 case "grab":
                 case "snag":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         var addsong = ["[user] I am now grabbing current song.","[user] This song is now mine! :blush:","[user] Now adding this current music video..."];
                         r = Math.floor(Math.random() * addsong.length);
                             API.sendChat(addsong[r].replace("user", data.from));
@@ -594,7 +594,7 @@ function chatMe(msg)
                         break;
  
                    case "props":
-                        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         if(typeof command[1] === "undefined"){
                            API.sendChat("@"+ data.from +" just gave props to @"+ API.getDJ().username +" for playing a dope track!");
                            }
@@ -623,7 +623,7 @@ function chatMe(msg)
                         break;
  
                    case "woot":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         if(typeof command[1] === "undefined"){
                            API.sendChat("One woot coming up!");
                         setTimeout(function(){
@@ -636,7 +636,7 @@ function chatMe(msg)
                         break;
  
                    case "meh":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         if(typeof command[1] === "undefined"){
                            API.sendChat("Bummer, A meh has been requested!!");
                         setTimeout(function(){
@@ -649,7 +649,7 @@ function chatMe(msg)
                         break;
  
                    case "join":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         setTimeout(function(){
                         var joindj = ["[user] Time to spin a track! :speaker:","[user] Seems like i'm up!","[user] Now joinning the booth"];
                         r = Math.floor(Math.random() * joindj.length);
@@ -662,7 +662,7 @@ function chatMe(msg)
                         break;
  
                    case "leave":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         setTimeout(function(){
                         var leavedj = ["[user] Now leaving the dj booth...","[user] Kicking me off :(","[user] Made a pic for you! http://i.imgur.com/4uVDb6f.gif  ....Loser"];
                         r = Math.floor(Math.random() * leavedj.length);
@@ -675,7 +675,7 @@ function chatMe(msg)
                         break;
  
                    case "votes":
-                        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         API.sendChat("Users vote:  :+1: " + API.getRoomScore().positive + " | :-1: " + API.getRoomScore().negative + " | :purple_heart: " + API.getRoomScore().curates);
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
@@ -683,7 +683,7 @@ function chatMe(msg)
                         break;
                         
                    case "version":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         API.sendChat("Bot Version "+ Funbot.misc.version);
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
@@ -693,7 +693,7 @@ function chatMe(msg)
                         break;
                         
                    case "source":
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.sendChat("DJ - ɴᴇᴏɴ - TFL wrote me at github which is available here: http://goo.gl/iLRyWJ");
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
@@ -701,7 +701,7 @@ function chatMe(msg)
                         break;
                         
                    case "reload":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                            API.sendChat("Now reloading script...");
                         setTimeout(function(){
                            Funbot.unhook();
@@ -715,7 +715,7 @@ function chatMe(msg)
                         break;
                         
                    case "die":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                            API.sendChat('Unhooking Events...');
                         setTimeout(function(){
                            API.sendChat('Deleting bot data...');
@@ -732,28 +732,28 @@ function chatMe(msg)
                         break;
  
                    case "whywoot":
-                        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.sendChat("Plug gives you 1 point for wooting the current song if you don't like the song i suggest you remain neutral");
                         }else if(command[1].indexOf("@") > -1){
                             API.sendChat(command[1]+" Plug gives you 1 point for wooting the current song if you don't like the song i suggest you remain neutral");
                         }else{
                             API.sendChat("Plug gives you 1 point for wooting the current song if you don't like the song i suggest you remain neutral");
                         }
-                        if(Funbot.admins.indexOf(fromID) > -1 || API.getUser(fromID).permission < 2){
+                        if(Funbot.admins.indexOf(fromID) > -1 || API.getHost(fromID).permission < 2){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
                         break;
  
                    case "whymeh":
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             API.sendChat("Reserve Mehs for songs that are a) extremely overplayed b) off genre c) absolutely god awful or d) troll songs. ");
                         }else if(command[1].indexOf("@") > -1){
                             API.sendChat(command[1]+" Reserve Mehs for songs that are a) extremely overplayed b) off genre c) absolutely god awful or d) troll songs. ");
                         }else{
                             API.sendChat("Reserve Mehs for songs that are a) extremely overplayed b) off genre c) absolutely god awful or d) troll songs. ");
                         }
-                        if(Funbot.admins.indexOf(fromID) > -1 || API.getUser(fromID).permission < 2){
+                        if(Funbot.admins.indexOf(fromID) > -1 || API.getHost(fromID).permission < 2){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -771,7 +771,7 @@ function chatMe(msg)
                             API.sendChat("Ask a mod if you're unsure about your song choice.");
                          }, 650);
                         }
-                        if(Funbot.admins.indexOf(fromID) > -1 || API.getUser(fromID).permission < 2){
+                        if(Funbot.admins.indexOf(fromID) > -1 || API.getHost(fromID).permission < 2){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -786,7 +786,7 @@ function chatMe(msg)
                         var idiotMsg = ["Dude wtf is wrong with you search that up yourself.","You sound stupid yo","What do i look like a porn bot?","What are you an idiot?"];
                             API.sendChat("@"+ data.from +" "+ idiotMsg[Math.floor(Math.random() * idiotMsg.length)]);
                         }
-                        if(Funbot.admins.indexOf(fromID) == -1 || API.getUser(fromID).permission < 2){
+                        if(Funbot.admins.indexOf(fromID) == -1 || API.getHost(fromID).permission < 2){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -795,25 +795,25 @@ function chatMe(msg)
                    case "author":
                    case "authors":
                    case "creator":
-                        if(Funbot.admins.indexOf(fromID) !== -1 || API.getUser(fromID).permission < 2){
+                        if(Funbot.admins.indexOf(fromID) !== -1 || API.getHost(fromID).permission < 2){
                            API.sendChat("This bot was created by: ๖ۣۜĐل - ɴᴇᴏɴ - TFL, And it's Copyrighted!");
                         }
                         break;
                        
                    case "beggerfilter":
                    case "bf":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1) Funbot.settings.beggerFilter ? API.sendChat("Begger filter is enabled") : API.sendChat("Begger filter is disabled");
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1) Funbot.settings.beggerFilter ? API.sendChat("Begger filter is enabled") : API.sendChat("Begger filter is disabled");
                         botMethods.save();
                         break;
                         
                    case "commandfilter":
                    case "cf":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1) Funbot.settings.commandFilter ? API.sendChat("Commands filter is enabled") : API.sendChat("Commands filter is disabled");
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1) Funbot.settings.commandFilter ? API.sendChat("Commands filter is enabled") : API.sendChat("Commands filter is disabled");
                         botMethods.save();
                         break;    
                         
                    case "tbf":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             if(Funbot.settings.beggerFilter){
                                 Funbot.settings.beggerFilter = false;
                                 API.sendChat("Bot will no longer filter fan begging.");
@@ -825,7 +825,7 @@ function chatMe(msg)
                         break;
                         
                    case "tcf":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                            if(Funbot.settings.commandFilter){
                                 Funbot.settings.commandFilter = false;
                                 API.sendChat("Bot will no longer filter commands.");
@@ -848,7 +848,7 @@ function chatMe(msg)
                        break;*/     
                         
                    case "status":
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             var response = "";
                             var currentTime = new Date().getTime();
                             var minutes = Math.floor((currentTime - joined) / 60000);
@@ -897,7 +897,7 @@ function chatMe(msg)
                                     break;
                            }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -936,7 +936,7 @@ function chatMe(msg)
                                     break;
                            }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -969,7 +969,7 @@ function chatMe(msg)
                                     break;
                            }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1002,7 +1002,7 @@ function chatMe(msg)
                                     break;
                            }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1064,7 +1064,7 @@ function chatMe(msg)
                                     break;
                             }
                         }
-                        if(Funbot.admins.indexOf(fromID) == -1 || API.getUser(fromID).permission < 2){
+                        if(Funbot.admins.indexOf(fromID) == -1 || API.getHost(fromID).permission < 2){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1099,7 +1099,7 @@ function chatMe(msg)
                                     break;
                             }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1151,7 +1151,7 @@ function chatMe(msg)
                                     break;
                             }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1184,7 +1184,7 @@ function chatMe(msg)
                                     break;
                            }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1217,7 +1217,7 @@ function chatMe(msg)
                                     break;
                            }
                         }
-                       if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                       if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                             Funbot.misc.ready = false;
                             setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                         }
@@ -1233,7 +1233,7 @@ function chatMe(msg)
             var id = data.fromID;var msg = data.message;var userfrom = data.from;
             var command = msg.substring(1).split(' ');
 
-            if(Funbot.misc.ready || Funbot.admins.indexOf(fromID) > -1 || API.getUser(fromID).permission > 1){
+            if(Funbot.misc.ready || Funbot.admins.indexOf(fromID) > -1 || API.getHost(fromID).permission > 1){
                 switch(command[1]){
                     
                     case 'none':
@@ -1247,7 +1247,7 @@ function chatMe(msg)
                         break;
                     
                     case 'resident':
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                          var username = msg.substr(msg.indexOf('@')+1);
                          var userid = getUserID(username);
                             API.moderateSetRole(userid, API.ROLE.RESIDENTDJ);
@@ -1256,7 +1256,7 @@ function chatMe(msg)
                         }
                         break;
                     case 'bouncer':
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         var username = msg.substr(msg.indexOf('@')+1);
                         var userid = getUserID(username);
                             API.moderateSetRole(userid, API.ROLE.BOUNCER);
@@ -1265,7 +1265,7 @@ function chatMe(msg)
                         }
                         break;
                     case 'manager':
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         var username = msg.substr(msg.indexOf('@')+1);
                         var userid = getUserID(username);
                             API.moderateSetRole(userid, API.ROLE.MANAGER);
@@ -1274,7 +1274,7 @@ function chatMe(msg)
                         }
                         break;
                     case 'cohost':
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         var username = msg.substr(msg.indexOf('@')+1);
                         var userid = getUserID(username);
                             API.moderateSetRole(userid, API.ROLE.COHOST);
@@ -1283,7 +1283,7 @@ function chatMe(msg)
                         }
                         break;
                     case 'host':
-                        if(API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+                        if(API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
                         var username = msg.substr(msg.indexOf('@')+1);
                         var userid = getUserID(username);
                             API.moderateSetRole(userid, API.ROLE.HOST);
@@ -1323,7 +1323,7 @@ function chatMe(msg)
     
     API.on(API.CHAT, function(data){
         msg = data.message.toLowerCase(), chatID = data.chatID, fromID = data.fromID;
-        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
             if(msg.indexOf('hello bot') !== -1 || msg.indexOf('bot hello') !== -1 || msg.indexOf('hi bot') !== -1 || msg.indexOf('bot hi') !== -1 || msg.indexOf('sup bot') !== -1 || msg.indexOf('bot sup') !== -1 || msg.indexOf('hey bot') !== -1 || msg.indexOf('bot hey') !== -1 || msg.indexOf('howdy bot') !== -1 || msg.indexOf('bot howdy') !== -1 || msg.indexOf('aye bot') !== -1 || msg.indexOf('yo bot') !== -1 || msg.indexOf('waddup bot') !== -1 || msg.indexOf('bot waddup') !== -1){
                 var HelloMsg = ["Hey!","Oh hey there!","Good day sir!","Hi","Howdy!","Waddup!"];
                 API.sendChat("@" + data.from + " " + HelloMsg[Math.floor(Math.random() * HelloMsg.length)]);
@@ -1331,7 +1331,7 @@ function chatMe(msg)
                     setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                 }
         }
-        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
             if(msg.indexOf("how are you bot") !== -1 || msg.indexOf("bot how are you") !== -1 || msg.indexOf("hru bot") !== -1 || msg.indexOf("bot hru") !== -1 || msg.indexOf("doing good bot?") !== -1 || msg.indexOf("bot doing good?") !== -1 || msg.indexOf("hows it going bot") !== -1 || msg.indexOf("bot how is it going") !== -1 || msg.indexOf("how you doing bot") !== -1 || msg.indexOf("bot how you doing") !== -1){
                 var HRUMsg = ["I'm good thanks for asking :)","Doing great yo and yourself?","All Good Mate!","I'm good thanks for asking!","Yeee i'm cool and youself yo?"];
                 API.sendChat("@" + data.from + " " + HRUMsg[Math.floor(Math.random() * HRUMsg.length)]);
@@ -1339,7 +1339,7 @@ function chatMe(msg)
                     setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                 }
         }
-        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
             if(msg.indexOf("ty bot") !== -1 || msg.indexOf("bot ty") !== -1 || msg.indexOf("thank you bot") !== -1 || msg.indexOf("bot thank you") !== -1 || msg.indexOf("thanks bot") !== -1 || msg.indexOf("bot thanks") !== -1 || msg.indexOf("thx bot") !== -1 || msg.indexOf("bot thx") !== -1 || msg.indexOf("thanks for asking bot") !== -1 || msg.indexOf("bot thanks for asking") !== -1 || msg.indexOf("thx for asking bot") !== -1 || msg.indexOf("bot thx for asking") !== -1){
                 var TYMsg = ["You're welcome! :D","Your always welcome bro!","No prob man.."];
                 API.sendChat("@" + data.from + " " + TYMsg[Math.floor(Math.random() * TYMsg.length)]);
@@ -1347,7 +1347,7 @@ function chatMe(msg)
                     setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                 }
         }
-        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
             if(msg.indexOf("ily bot") !== -1 || msg.indexOf("bot ily") !== -1 || msg.indexOf("i love you bot") !== -1 || msg.indexOf("bot i love you") !== -1 || msg.indexOf("i luv you bot") !== -1 || msg.indexOf("bot i luv you") !== -1 || msg.indexOf("i luv u bot") !== -1 || msg.indexOf("bot i luv u") !== -1 || msg.indexOf("i luv you bot") !== -1 || msg.indexOf("i love you more bot") !== -1 || msg.indexOf("bot love you") !== -1 || msg.indexOf("love you bot") !== -1){
                 var LoveMsg = ["Fuck yeahh!! :D I love you too baby!","I love you too ;).....   Sex?... JK you don't want this big thing ;)","I love you too o.0","Sweet.. Love you to ;)"];
                 API.sendChat("@" + data.from + " " + LoveMsg[Math.floor(Math.random() * LoveMsg.length)]);
@@ -1355,7 +1355,7 @@ function chatMe(msg)
                     setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                 }
         }
-        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
             if(msg.indexOf("fuck you bot") !== -1 || msg.indexOf("bot fuck you") !== -1 || msg.indexOf("f u bot") !== -1 || msg.indexOf("bot f u") !== -1 || msg.indexOf("fuhk yuh bot") !== -1 || msg.indexOf("bot fuhk you") !== -1){
                 var FuckMsg = ["Nah.. I don't need another fuck after giving your mom one last night.","</input fuck> Jk... Fuck you too","< Test fuck >.. Sorry 0% fucks were given by me."];
                 API.sendChat("@" + data.from + " " + FuckMsg[Math.floor(Math.random() * FuckMsg.length)]);
@@ -1363,7 +1363,7 @@ function chatMe(msg)
                     setTimeout(function(){ Funbot.misc.ready = true; }, Funbot.settings.cooldown * 1000);
                 }
         }
-        if(API.getUser(fromID).permission < 2 || API.getUser(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
+        if(API.getHost(fromID).permission < 2 || API.getHost(fromID).permission > 1 || Funbot.admins.indexOf(fromID) > -1){
             if(msg.indexOf("bot shut up") !== -1 || msg.indexOf("shut up bot") !== -1 || msg.indexOf("stfu bot") !== -1 || msg.indexOf("bot stfu") !== -1 || msg.indexOf("hush bot") !== -1 || msg.indexOf("bot hush") !== -1 || msg.indexOf("hush it bot") !== -1 || msg.indexOf("bot hush it") !== -1 || msg.indexOf("be quiet bot") !== -1 || msg.indexOf("bot be quiet") !== -1 || msg.indexOf("shut the hell up bot") !== -1 || msg.indexOf("bot shut the hell up") !== -1){
                 var stfuMsg = ["<Test/ShutUp ... Nope","Eat this http://i.imgur.com/CSq5xkH.gif","No you shut up!","But i was made to talk.. :(","Just because i am a bot doesn't mean you have to tell me to shut up. Why don't you shut up!","Hey idiot! Ever heard of pressing the \"Ignore button\"?"];
                 API.sendChat("@" + data.from + " " + stfuMsg[Math.floor(Math.random() * stfuMsg.length)]);
