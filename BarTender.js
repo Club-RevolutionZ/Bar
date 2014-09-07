@@ -73,7 +73,7 @@ Funbot.settings.removedFilter = true;
 
 // Admins ID
 //Funbot.admins = ["50aeaeb6c3b97a2cb4c25bd2"];
-Funbot.admins = ["Deejay NexusRevZ"];
+Funbot.admins = ["3885577"];
 
 // Random announcements.
 var announcements = 
