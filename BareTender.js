@@ -126,7 +126,7 @@
 
     var basicBot = {
         version: "1.0",
-        status: false,
+        status: true, //false
         name: "BarTender",
         loggedInID: null,
         scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTender.js",
@@ -424,7 +424,7 @@
                         rankInt = 7;
                         break;
                     case "host":
-                        rankInt = 5;
+                        rankInt = 10; //5
                         break;
                     case "cohost":
                         rankInt = 4;
@@ -1046,7 +1046,7 @@
                         minPerm = 7;
                         break;
                     case 'host':
-                        minPerm = 5;
+                        minPerm = 10; //5
                         break;
                     case 'cohost':
                         minPerm = 4;
