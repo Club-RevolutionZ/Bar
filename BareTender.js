@@ -127,9 +127,9 @@
     var basicBot = {
         version: "1.0",
         status: false,
-        name: "basicBot",
+        name: "BarTender",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Yemasthui/basicBot/master/basicBot.js",
+        scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTender.js",
         cmdLink: "http://git.io/245Ppg",
         chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
         chat: null,
