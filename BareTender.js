@@ -121,8 +121,8 @@
 
     };
 
-    var botCreator = "Matthew aka. Yemasthui";
-    var botCreatorIDs = [];
+    var botCreator = "ME";
+    var botCreatorIDs = ["3885577"];
 
     var basicBot = {
         version: "2.0.0",
@@ -136,7 +136,7 @@
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         settings: {
-            botName: "basicBot",
+            botName: "BarT",
             language: "english",
             chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
             maximumAfk: 120,
@@ -155,19 +155,19 @@
             usercommandsEnabled: true,
             lockskipPosition: 3,
             lockskipReasons: [
-                ["theme", "This song does not fit the room theme. "],
-                ["op", "This song is on the OP list. "],
-                ["history", "This song is in the history. "],
-                ["mix", "You played a mix, which is against the rules. "],
-                ["sound", "The song you played had bad sound quality or no sound. "],
-                ["nsfw", "The song you contained was NSFW (image or sound). "],
-                ["unavailable", "The song you played was not available for some users. "]
+                ["theme", "This song does not fit the room theme.Y "],
+                ["op", "This song is on the OP list.y "],
+                ["history", "This song is in the history.y "],
+                ["mix", "You played a mix, which is against the rules. y"],
+                ["sound", "The song you played had bad sound quality or no sound. y"],
+                ["nsfw", "The song you contained was NSFW (image or sound). y"],
+                ["unavailable", "The song you played was not available for some users. y"]
             ],
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
-            motdEnabled: false,
-            motdInterval: 5,
-            motd: "Temporary Message of the Day",
+            motdEnabled: true, //false
+            motdInterval: 1, //5
+            motd: "MOTD BABY",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
@@ -177,8 +177,8 @@
             fbLink: null,
             youtubeLink: null,
             website: null,
-            intervalMessages: [],
-            messageInterval: 5,
+            intervalMessages: ["INT MSG!"],
+            messageInterval: 1,
             songstats: true,
             commandLiteral: "!"
         },
