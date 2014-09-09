@@ -1391,7 +1391,7 @@ define('plugCubed/Version', [], function() {
         minor: 0,
         patch: 0,
         prerelease: "alpha",
-        build: 10,
+        build: 11,
         minified: false,
         /**
          * @this {version}
@@ -1496,6 +1496,9 @@ define('plugCubed/Socket', ['underscore', 'plugCubed/Class', 'plugCubed/Utils', 
                 socketReconnecting = true;
 
                 switch (info.code) {
+                    case 3001:
+                        delay = 60;
+                        break;
                     case 3002:
                         delay = 300;
                         break;
@@ -1506,11 +1509,11 @@ define('plugCubed/Socket', ['underscore', 'plugCubed/Class', 'plugCubed/Utils', 
                         return;
                     default:
                         tries++;
-                        if (tries < 5) {
+                        if (tries < 2) {
                             delay = 5;
-                        } else if (tries < 30) {
+                        } else if (tries < 4) {
                             delay = 30;
-                        } else if (tries < 60) {
+                        } else if (tries < 8) {
                             delay = 60;
                         } else return;
                         break;
@@ -1518,7 +1521,7 @@ define('plugCubed/Socket', ['underscore', 'plugCubed/Class', 'plugCubed/Utils', 
 
                 setTimeout(function() {
                     _this.connect();
-                }, delay * 1E3);
+                }, delay * 1E3 + (Math.ceil(Math.random() * 5000)));
             },
             getState: function() {
                 return socket.readyState;
@@ -1612,7 +1615,7 @@ define('plugCubed/RSS', ['jquery', 'plugCubed/Class', 'plugCubed/Utils', 'plugCu
         },
         update: function() {
             var a;
-            a = p3Utils.cleanHTML($('#room-info').find('.description').find('.value').html(), ['a']);
+            a = p3Utils.cleanHTML($('#room-info').find('.description').find('.value').html().split('<br>').join('\n'), '*');
             if (a.indexOf('@p3=') > -1) {
                 a = a.substr(a.indexOf('@p3=') + 4);
                 if (a.indexOf('\n') > -1)
@@ -3318,69 +3321,7 @@ define('plugCubed/features/Whois', ['plugCubed/handlers/TriggerHandler', 'plugCu
 
     return new handler();
 });
-define('plugCubed/features/WindowTitle', ['plugCubed/handlers/TriggerHandler', 'plugCubed/Settings', 'plugCubed/Utils'], function(TriggerHandler, Settings, p3Utils) {
-    var Database, PlaybackModel, handler;
-
-    if (!p3Utils.runLite) {
-        Database = require('ce221/b0533/e5fad');
-        PlaybackModel = require('ce221/bbc3c/f6ff1');
-    }
-
-    handler = TriggerHandler.extend({
-        trigger: API.ADVANCE,
-        register: function() {
-            this._super();
-            this.title = '';
-            this.titleClean = '';
-            this.titlePrefix = '';
-            if (!p3Utils.runLite)
-                PlaybackModel.on('change:streamDisabled change:volume change:muted', this.onStreamChange, this);
-            this.onStreamChange();
-        },
-        close: function() {
-            this._super();
-            if (this.intervalID)
-                clearInterval(this.intervalID);
-            if (!p3Utils.runLite)
-                PlaybackModel.off('change:streamDisabled change:volume change:muted', this.onStreamChange, this);
-        },
-        handler: function(data) {
-            if ( /* Settings.songTitle && */ data.media && data.media.title) {
-                this.titlePrefix = (API.getVolume() > 0 && (p3Utils.runLite || (!p3Utils.runLite && !Database.settings.streamDisabled)) ? 'â–¶' : 'âšâš') + 'â€„';
-
-                if (this.titleClean === data.media.author + ' - ' + data.media.title + ' :: ' + p3Utils.getRoomname() + ' :: ') return;
-
-                if (this.intervalID)
-                    clearInterval(this.intervalID);
-                this.titleClean = data.media.author + ' - ' + data.media.title + ' :: ' + p3Utils.getRoomname() + ' :: ';
-                this.title = (this.titlePrefix + this.titleClean).split(' ').join('â€„');
-                document.title = this.title;
-                var _this = this;
-                this.intervalID = setInterval(function() {
-                    _this.onIntervalTick();
-                }, 300);
-                return;
-            }
-            if (this.intervalID)
-                clearInterval(this.intervalID);
-            document.title = p3Utils.getRoomname();
-        },
-        onIntervalTick: function() {
-            var title = this.title.substr(this.titlePrefix.length);
-            title = title.substr(1) + title.substr(0, 1);
-            this.title = this.titlePrefix + title;
-            document.title = this.title;
-        },
-        onStreamChange: function() {
-            this.handler({
-                media: API.getMedia()
-            });
-        }
-    });
-
-    return new handler();
-});
-define('plugCubed/Features', ['plugCubed/Class', 'plugCubed/features/Alertson', 'plugCubed/features/Autojoin', 'plugCubed/features/Automute', 'plugCubed/features/Autorespond', 'plugCubed/features/Autowoot', 'plugCubed/features/Whois', 'plugCubed/features/WindowTitle'], function() {
+define('plugCubed/Features', ['plugCubed/Class', 'plugCubed/features/Alertson', 'plugCubed/features/Autojoin', 'plugCubed/features/Automute', 'plugCubed/features/Autorespond', 'plugCubed/features/Autowoot', 'plugCubed/features/Whois' /*, 'plugCubed/features/WindowTitle'*/ ], function() {
     var modules, Class, handler;
 
     modules = $.makeArray(arguments);
@@ -3855,7 +3796,6 @@ define('plugCubed/UserRolloverView', ['plugCubed/Class', 'plugCubed/Utils', 'plu
                 var specialIconInfo = p3Utils.getPlugCubedSpecial(a.id);
 
                 if (this.$p3Role === undefined) {
-                    console.log('Creating p3Role');
                     this.$p3Role = $('<span>').addClass('p3Role');
                     this.$meta.append(this.$p3Role);
                 }
