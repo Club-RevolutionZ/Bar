@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "2.0.0",
+        version: "1.0",
         status: false,
         name: "basicBot",
         loggedInID: null,
@@ -136,7 +136,7 @@
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         settings: {
-            botName: "BarT",
+            botName: "BarTender",
             language: "english",
             chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
             maximumAfk: 120,
@@ -149,7 +149,7 @@
             cycleGuard: true,
             maximumCycletime: 10,
             timeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 7,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -167,7 +167,7 @@
             afkRankCheck: "ambassador",
             motdEnabled: true, //false
             motdInterval: 1, //5
-            motd: "MOTD BABY",
+            motd: "Please do our survey, to provide you with more cookies! http://tinyurl.com/PlugDJSurvey",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
@@ -179,8 +179,8 @@
             website: null,
             intervalMessages: ["INT MSG!"],
             messageInterval: 1,
-            songstats: true,
-            commandLiteral: "!"
+            songstats: false, //true
+            commandLiteral: " " // ! EXCLAMATION MARK
         },
         room: {
             users: [],
