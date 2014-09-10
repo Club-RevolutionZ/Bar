@@ -1353,29 +1353,35 @@
                     }
                 }
             },
-
-            drinkCommand: {
-                command: 'drink',
+            
+            cookieCommand: {
+                command: 'cookie',
                 rank: 'user',
                 type: 'startsWith',
-                drinks: ['has bought you a cup of apple juice!',
-                    'has bought you a cup of orange juice!',
-                    'has bought you a half empty glass of prune juice.',
-                    'has bought you a cup peach juice!',
-                    'has bought you an expired juicebox. Its only been a year past the expiration.',
-                    'has bought you a glass of plain water. But it looks fizzy.',
-                    'has bought you a glass of freshly squeezed lemon juice!',
-                    'has bought you a glass of Vodka!',
-                    'has bought you a glass of Chocolate Milk!',
-                    'has bought you a glass of expired Milk. Oh well. now its just a glass of yoghurt.',
-                    'has bought you a warm glass of Cola!',
-                    'has bought you a chilled glass of Ginger Beer!',
-                    'has bought you a chilled glass of Root Beer!',
-                    'has bought you a drink. The drink seems to be foggy..',                       '
+                cookies: ['has given you a chocolate chip cookie!',
+                    'has given you a soft homemade oatmeal cookie!',
+                    'has given you a plain, dry, old cookie. It was the last one in the bag. Gross.',
+                    'gives you a sugar cookie. What, no frosting and sprinkles? 0/10 would not touch.',
+                    'gives you a chocolate chip cookie. Oh wait, those are raisins. Bleck!',
+                    'gives you an enormous cookie. Poking it gives you more cookies. Weird.',
+                    'gives you a fortune cookie. It reads "Why aren\'t you working on any projects?"',
+                    'gives you a fortune cookie. It reads "Give that special someone a compliment"',
+                    'gives you a fortune cookie. It reads "Take a risk!"',
+                    'gives you a fortune cookie. It reads "Go outside."',
+                    'gives you a fortune cookie. It reads "Don\'t forget to eat your veggies!"',
+                    'gives you a fortune cookie. It reads "Do you even lift?"',
+                    'gives you a fortune cookie. It reads "m808 pls"',
+                    'gives you a fortune cookie. It reads "If you move your hips, you\'ll get all the ladies."',
+                    'gives you a fortune cookie. It reads "I love you."',
+                    'gives you a Golden Cookie. You can\'t eat it because it is made of gold. Dammit.',
+                    'gives you an Oreo cookie with a glass of milk!',
+                    'gives you a rainbow cookie made with love :heart:',
+                    'gives you an old cookie that was left out in the rain, it\'s moldy.',
+                    'bakes you fresh cookies, it smells amazing.'
                 ],
-                getDrink: function () {
-                    var c = Math.floor(Math.random() * this.drink.length);
-                    return this.drinks[c];
+                getCookie: function () {
+                    var c = Math.floor(Math.random() * this.cookies.length);
+                    return this.cookies[c];
                 },
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -1385,39 +1391,26 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatdrink);
+                            API.sendChat(basicBot.chat.eatcookie);
                             return false;
                         }
                         else {
                             var name = msg.substring(space + 2);
                             var user = basicBot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserdrink, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.nousercookie, {name: name}));
                             }
                             else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfdrink, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.selfcookie, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.drink, {nameto: user.username, namefrom: chat.un, drink: this.getDrink()}));
+                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
                             }
                         }
                     }
                 }
             },
-
-            cycleCommand: {
-                command: 'cycle',
-                rank: 'manager',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        basicBot.roomUtilities.changeDJCycle();
-                    }
-                }
-            },
-
+            
             cycleguardCommand: {
                 command: 'cycleguard',
                 rank: 'bouncer',
