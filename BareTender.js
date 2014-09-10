@@ -130,7 +130,7 @@
         name: "BarTender",
         loggedInID: null,
         scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTender.js",
-        cmdLink: "http://git.io/245Ppg",
+        cmdLink: "ttps://github.com/Club-RevolutionZ/Bar/blob/master/BartenderJobScope.me",
         chatLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
         chat: null,
         loadChat: loadChat,
