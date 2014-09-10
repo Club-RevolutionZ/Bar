@@ -1516,20 +1516,34 @@
                     }
                 }
             },
-            
             fbCommand: {
+                command: 'fb',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.fbLink);
+                        var argument = msg.substring(cmd.length + 1);
+                        
+                    }
+                }
+            },
+           /* fbCommand: {
                 command: 'fb',
                 rank: 'user',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
+                    else {========
                         if (typeof basicBot.settings.fbLink === "string")
                             API.sendChat(subChat(basicBot.chat.facebook, {link: basicBot.settings.fbLink}));
                     }
                 }
-            },
+            },*/
 
             filterCommand: {
                 command: 'filter',
