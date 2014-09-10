@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.3",//Updated BarTender's Accent.
+        version: "1.25",//Updated BarTender's Accent.
         status: true, //false
         name: "BarTender",
         loggedInID: null,
