@@ -35,7 +35,7 @@
 
     var loadChat = function(cb){
         if(!cb) cb = function(){};
-        $.get("https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderDictionary.json", function(json){
+        $.get("https://raw.githubusercontent.com/Club-RevolutionZ/Bar/master/BareTenderDictionary.json", function(json){
             var link = basicBot.chatLink;
             if(json !== null && typeof json !== "undefined"){
                 langIndex = json;
@@ -130,15 +130,15 @@
         name: "BarTender",
         loggedInID: null,
         scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTender.js",
-        cmdLink: "ttps://github.com/Club-RevolutionZ/Bar/blob/master/BartenderJobScope.me",
-        chatLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
+        cmdLink: "https://github.com/Club-RevolutionZ/Bar/blob/master/BartenderJobScope.me",
+        chatLink: "https://raw.githubusercontent.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         settings: {
             botName: "BarTender",
             language: "english",
-            chatLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
+            chatLink: "https://raw.githubusercontent.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
             maximumAfk: 120,
             afkRemoval: true,
             maximumDc: 60,
@@ -165,22 +165,22 @@
             ],
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
-            motdEnabled: true, //false
-            motdInterval: 1, //5
+            motdEnabled: true, 
+            motdInterval: 1,
             motd: "Please do our survey, to provide you with more cookies! http://tinyurl.com/PlugDJSurvey",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: "http://tinyurl.com/ClubRevolutionZRules",
+            rulesLink:"http://tinyurl.com/ClubRevolutionZRules",
             themeLink: "http://tinyurl.com/ClubRevolutionZCurrentEvent",
             fbLink: "https://www.facebook.com/ClubRevolutionZ",
             youtubeLink: null,
             website: "http://tinyurl.com/ClubRevolutionZ",
             intervalMessages: "INT MSG!",
             messageInterval: 1,
-            songstats: false, //true
-            commandLiteral: "!" // ! EXCLAMATION MARK
+            songstats: false, 
+            commandLiteral: "!"
         },
         room: {
             users: [], //chk this
