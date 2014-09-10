@@ -77,7 +77,7 @@
     "eatdrink": "/me secretly sips a glass of bourbon.:trollface:",
     "nouserdrink": "/me doesn't see %%NAME%% in room and drinks it himself.:trollface:",
     "selfdrink": "/me @%%NAME%%, you're a bit drunk, aren't you? Stop drinking yourself and share with other people!:busts_in_silhouette:",
-    "drink": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
+    "drink": "/me @%%NAMETO%%, @%%NAMEFROM%% %%DRINK%%",
     "cycleguardtime": "/me [@%%NAME%%] The cycleguard is set to %%TIME%% minute(s).",
     "dclookuprank": "/me [@%%NAME%%] Only bouncers and above can do a lookup for others.",
     "emojilist": "/me Emoji list: %%LINK%%",
