@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.1.2",
+        version: "1.2",
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -183,7 +183,7 @@
             commandLiteral: "!" // ! EXCLAMATION MARK
         },
         room: {
-            users: [],
+            users: [], //chk this
             afkList: [],
             mutedUsers: [],
             bannedUsers: [],
@@ -1529,11 +1529,11 @@
                     }
                 }
             },
-
+            
             fbCommand: {
                 command: 'fb',
                 rank: 'user',
-                type: 'startsWith', // 'exact'
+                type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
