@@ -180,7 +180,7 @@
             intervalMessages: ["INT MSG!"],
             messageInterval: 1,
             songstats: false, //true
-            commandLiteral: "/" // ! EXCLAMATION MARK
+            commandLiteral: ">" // ! EXCLAMATION MARK
         },
         room: {
             users: [],
