@@ -35,7 +35,7 @@
 
     var loadChat = function(cb){
         if(!cb) cb = function(){};
-        $.get("https://rawgit.com/Yemasthui/basicBot/master/lang/langIndex.json", function(json){
+        $.get("https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderDictionary.json", function(json){
             var link = basicBot.chatLink;
             if(json !== null && typeof json !== "undefined"){
                 langIndex = json;
@@ -125,20 +125,20 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.2",
+        version: "1.3",//Updated BarTender's Accent.
         status: true, //false
         name: "BarTender",
         loggedInID: null,
         scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTender.js",
         cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+        chatLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         settings: {
             botName: "BarTender",
             language: "english",
-            chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+            chatLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderResume.json",
             maximumAfk: 120,
             afkRemoval: true,
             maximumDc: 60,
