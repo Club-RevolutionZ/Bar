@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.1",
+        version: "1.1.1",
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -173,11 +173,11 @@
             welcome: true,
             opLink: null,
             rulesLink: "http://tinyurl.com/ClubRevolutionZRules",
-            themeLink: ["http://tinyurl.com/ClubRevolutionZCurrentEvent"],
-            fbLink: ["https://www.facebook.com/ClubRevolutionZ"],
+            themeLink: "http://tinyurl.com/ClubRevolutionZCurrentEvent",
+            fbLink: "https://www.facebook.com/ClubRevolutionZ",
             youtubeLink: null,
-            website: ["http://tinyurl.com/ClubRevolutionZ"],
-            intervalMessages: ["INT MSG!"],
+            website: "http://tinyurl.com/ClubRevolutionZ",
+            intervalMessages: "INT MSG!",
             messageInterval: 1,
             songstats: false, //true
             commandLiteral: "!" // ! EXCLAMATION MARK
