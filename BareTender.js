@@ -1356,7 +1356,7 @@
             
             cookieCommand: {
                 command: 'drink',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 cookies: ['has given you a chocolate chip cookie!',
                     'has given you a soft homemade oatmeal cookie!',
@@ -1364,7 +1364,7 @@
                     'gives you a sugar cookie. What, no frosting and sprinkles? 0/10 would not touch.',
                     'gives you a chocolate chip cookie. Oh wait, those are raisins. Bleck!',
                     'gives you an enormous cookie. Poking it gives you more cookies. Weird.',
-                    'gives you a fortune cookie. It reads "Why aren\'t you working on any projects?"',
+                    'gives you a fortune cookie. It reads "Why are you not working on any projects?"',
                     'gives you a fortune cookie. It reads "Give that special someone a compliment"',
                     'gives you a fortune cookie. It reads "Take a risk!"',
                     'gives you a fortune cookie. It reads "Go outside."',
@@ -1373,10 +1373,10 @@
                     'gives you a fortune cookie. It reads "m808 pls"',
                     'gives you a fortune cookie. It reads "If you move your hips, you\'ll get all the ladies."',
                     'gives you a fortune cookie. It reads "I love you."',
-                    'gives you a Golden Cookie. You can\'t eat it because it is made of gold. Dammit.',
+                    'gives you a Golden Cookie. You cannot eat it because it is made of gold. Dammit.',
                     'gives you an Oreo cookie with a glass of milk!',
                     'gives you a rainbow cookie made with love :heart:',
-                    'gives you an old cookie that was left out in the rain, it\'s moldy.',
+                    'gives you an old cookie that was left out in the rain, its moldy.',
                     'bakes you fresh cookies, it smells amazing.'
                 ],
                 getCookie: function () {
