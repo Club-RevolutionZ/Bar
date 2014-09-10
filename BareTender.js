@@ -172,15 +172,15 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: null,
-            themeLink: null,
-            fbLink: null,
+            rulesLink: ["http://tinyurl.com/ClubRevolutionZRules"],
+            themeLink: ["http://tinyurl.com/ClubRevolutionZCurrentEvent"],
+            fbLink: ["https://www.facebook.com/ClubRevolutionZ"],
             youtubeLink: null,
-            website: null,
+            website: ["http://tinyurl.com/ClubRevolutionZ"],
             intervalMessages: ["INT MSG!"],
             messageInterval: 1,
             songstats: false, //true
-            commandLiteral: "!" // ! EXCLAMATION MARK
+            commandLiteral: "/" // ! EXCLAMATION MARK
         },
         room: {
             users: [],
