@@ -1,6 +1,6 @@
 {
 
-    "nodatafound": "No leftover liquor found."//"No previous data found.",
+    "nodatafound": "No leftover liquor found." //No previous data found.
     "retrievingdata": "OH! A small glass of liquor!"//"Retrieving previously stored data.",
     "datarestored": "Ok, let's get this job started."//"Previously stored data successfully retrieved.",
     "greyuser": "Don't you dare tell me what to do!"//"Only bouncers and up can run a bot.",
