@@ -1375,7 +1375,7 @@
                 ],
                 getDrink: function () {
                     var c = Math.floor(Math.random() * this.drink.length);
-                    return this.drink[c];
+                    return this.drinks[c];
                 },
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -1398,7 +1398,7 @@
                                 return API.sendChat(subChat(basicBot.chat.selfdrink, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.drink, {nameto: user.username, namefrom: chat.un, drink: this.getdrink()}));
+                                return API.sendChat(subChat(basicBot.chat.drink, {nameto: user.username, namefrom: chat.un, drink: this.getDrink()}));
                             }
                         }
                     }
