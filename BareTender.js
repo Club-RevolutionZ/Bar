@@ -1354,11 +1354,11 @@
                 }
             },
             
-            cookieCommand: {
+            drinkCommand: {
                 command: 'drink',
                 rank: 'residentdj',
                 type: 'startsWith',
-                cookies: ['has bought you a cup of Apple juice! ',
+                drinks: ['has bought you a cup of Apple juice! ',
                     'has bought you a glass of chilled Cola!!',
                     'has bought you a cup of Cranberry juice!',
                     'has bought you a pint of Johny Walker!',
@@ -1372,9 +1372,9 @@
                     'has bought you an empty glass...',
                     'bakes you fresh cookies, it smells amazing.'
                 ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
+                getDrink: function () {
+                    var c = Math.floor(Math.random() * this.drinks.length);
+                    return this.drinks[c];
                 },
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -1384,20 +1384,20 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatcookie);
+                            API.sendChat(basicBot.chat.eatdrink);
                             return false;
                         }
                         else {
                             var name = msg.substring(space + 2);
                             var user = basicBot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nousercookie, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.nouserdrink, {name: name}));
                             }
                             else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfcookie, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.selfdrink, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
+                                return API.sendChat(subChat(basicBot.chat.drink, {nameto: user.username, namefrom: chat.un, drink: this.getDrink()}));
                             }
                         }
                     }
