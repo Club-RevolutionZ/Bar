@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.0",
+        version: "1.1",
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -172,7 +172,7 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            rulesLink: ["http://tinyurl.com/ClubRevolutionZRules"],
+            rulesLink: "http://tinyurl.com/ClubRevolutionZRules",
             themeLink: ["http://tinyurl.com/ClubRevolutionZCurrentEvent"],
             fbLink: ["https://www.facebook.com/ClubRevolutionZ"],
             youtubeLink: null,
