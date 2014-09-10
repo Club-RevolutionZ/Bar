@@ -5,7 +5,7 @@
     "datarestored": "Ok, let's get this job started.:bowtie:",
     "greyuser": "Don't you dare tell me what to do!:triumph:",
     "bouncer": "How do you expect me to move? I'm only able to bounce!:grin:",
-    "online": "/me I'm a %%BOTNAME%% from v%%VERSION%%. Bar's open!:grinning:",
+    "online": "/me I'm a %%BOTNAME%% from v%%VERSION%%. Bar's open!:smile:",
 
 
     "welcome": "/me Welcome to Club RevolutionZ, %%NAME%%:wave:",
@@ -61,7 +61,7 @@
     "lockdown": "lockdown",
     "lockguard": "lockguard",
     "usercommands": "usercommands",
-    "motd": "MotD :trident:",
+    "motd": "MotD ",
     "welcomemsg": "welcome message",
     "songstats": "song statistics",
     "etarestriction": "eta restriction",
@@ -96,8 +96,8 @@
     "lockskippos": "/me [@%%NAME%%] Lockskip will now move the dj to position %%POSITION%%.",
     "lockguardtime": "/me [@%%NAME%%] The lockguard is set to %%TIME%% minute(s).",
     "maxlengthtime": "/me [@%%NAME%%] The maximum song duration is set to %%TIME%% minutes.",
-    "motdset": "/me :trident: MotD has been set to:  %%MSG%%",
-    "motdintervalset": "/me :trident: MotD interval has been set to %%INTERVAL%%.",
+    "motdset": "/me MotD has been set to:  %%MSG%%",
+    "motdintervalset": "/me MotD interval has been set to %%INTERVAL%%.",
     "addbotwaitlist": "/me @%%NAME%%, if I get on the DJ console, who's gonna manage the Bar? Come on man! Let me do my darn job!:frowning:",
     "move": "/me [%%NAME%% used move.]",
     "mutednotime": "/me %%NAME%% has superglued @%%USERNAME%%'s mouth shut! :no_mouth:",
