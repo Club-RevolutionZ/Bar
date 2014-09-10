@@ -35,7 +35,7 @@
 
     var loadChat = function(cb){
         if(!cb) cb = function(){};
-        $.get("https://rawgit.com/Club-RevolutionZ/Bar/blob/master/BareTenderDictionary.json", function(json){
+        $.get("https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderDictionary.json", function(json){
             var link = basicBot.chatLink;
             if(json !== null && typeof json !== "undefined"){
                 langIndex = json;
