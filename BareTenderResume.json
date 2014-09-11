@@ -130,6 +130,10 @@
     "eatcookie": "/me 'I swear the Cookie Jar is hidden somewhere here... :persevere:'",
     "nousercookie": "/me doesn't see %%NAME%% in room and eats the :cookie: by himself.:trollface:",
     "selfcookie": "/me '@%%NAME%%, did you just sneak a :cookie: into your mouth?'",
-    "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%"
+    "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
+    "eatalcohol": "/me *secretly sips a glass of :beer: Bourbon.* :trollface:",
+    "nouseralcohol": "/me *doesn't see %%NAME%% in room and stores the alcoholic beverage back in the fridge. :bowtie:*",
+    "selfalcohol": "/me '@%%NAME%%, a chilled glass of Tiger Beer for you sir.' :beer:",
+    "alcohol": "/me @%%NAMETO%%, @%%NAMEFROM%% %%ALCOHOL%%"
 
 }
