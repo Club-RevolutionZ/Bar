@@ -1411,6 +1411,46 @@
                 }
             },
             
+            alcoholCommand: {
+                command: 'alcohol',
+                rank: 'cohost',
+                type: 'startsWith',
+                alcohols: ['has bought you a pint of Johny Walker!',
+                    'has bought you a glass of Vodka!',
+                    'has bought you an empty glass...'
+                ],
+                getAlcohol: function () {
+                    var c = Math.floor(Math.random() * this.alcohols.length);
+                    return this.alcohols[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatalcohol);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouseralcohol, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfalcohol, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.alcohol, {nameto: user.username, namefrom: chat.un, alcohol: this.getAlcohol()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
             drinkCommand: {
                 command: 'drink',
                 rank: 'residentdj',
