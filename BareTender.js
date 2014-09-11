@@ -1356,18 +1356,21 @@
             
             drinkCommand: {
                 command: 'drink',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 drinks: ['has bought you a cup of Apple juice! ',
                     'has bought you a glass of chilled Cola!!',
-                    'has bought you a cup of Cranberry juice!,
+                    'has bought you a cup of Cranberry juice!',
+                    'has bought you a pint of Johny Walker!',
+                    'has bought you a glass of Vodka!',
                     'has bought you a cup of Chocolate Milk!',
                     'has bought you a glass of Sprite!',
                     'has bought you a glass of freshly squeezed Orange juice!',
                     'has bought you a glass of freshly squeezed Lemon juice!',
                     'has bought you a glass of plain water. Although it seems to be fizzy....',
                     'has bought you a glass of expired Milk. Oh well, its yoghurt now.',
-                    'has bought you an empty glass...'
+                    'has bought you an empty glass...',
+                    'bakes you fresh cookies, it smells amazing.'
                 ],
                 getDrink: function () {
                     var c = Math.floor(Math.random() * this.drinks.length);
