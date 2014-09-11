@@ -1,15 +1,3 @@
- BarTenderResume:
- {
-    FOR THE BOT "eatalcohol": "/me *secretly sips a glass of :beer: Bourbon.* :trollface:", 
-    USER with wrg name or not in room. "nouseralcohol": "/me *doesn't see %%NAME%% in room and stores the alcoholic beverage back in the fridge.*", 
-    FOR YOURSELF "selfalcohol": "/me '@%%NAME%%, a chilled glass of Tiger Beer for you sir.' :beer:",
-    "alcohol": "/me @%%NAMETO%%, @%%NAMEFROM%% %%ALCOHOL%%",
- }
- 
- 
- 
- 
- 
     BarTender:
     {
             pizzaCommand: {
@@ -52,57 +40,37 @@
                 }
             },
             
-            chipsCommand: {
-                command: 'chips',
-                rank: 'user',
-                type: 'startsWith',
-                chipss: ['has bought you a small bag of Potato chips!',
-                    'has bought you a large bag of BBQ flavored Potato chips!',
-                    'has bought you a bag of opened Potato chips.'
-                ],
-                getChips: function () {
-                    var c = Math.floor(Math.random() * this.chipss.length);
-                    return this.chipss[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.eatchips);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserchips, {name: name}));
-                            }
-                            else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfchips, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.chips, {nameto: user.username, namefrom: chat.un, chips: this.getChips()}));
-                            }
-                        }
-                    }
-                }
-            },
             
-            cupcakeCommand: {
-                command: 'cupcake',
-                rank: 'user',
+            
+            -----------------------------------------------
+            cookieCommand: {
+                command: 'cookie',
+                rank: 'residentdj',
                 type: 'startsWith',
-                cupcakes: ['has bought you a Chocolate cupcake!',
-                    'has bought you a Strawberry cupcake!',
-                    'has bought you a cupcake with a worm dancing! "I think that is a real worm."'
+                cookies: ['has bought you a chocolate chip cookie!',
+                    'has bought you a soft homemade oatmeal cookie!',
+                    'has bought you a plain, dry, old cookie. It was the last one in the bag. Gross.',
+                    'bought you a sugar cookie. What, no frosting and sprinkles? 0/10 would not touch.',
+                    'bought you a chocolate chip cookie. Oh wait, those are raisins. Bleugh!',
+                    'bought you an enormous cookie. Poking it gives you more cookies. Weird.',
+                    'bought you a fortune cookie. It reads "Why are you not working on any projects?"',
+                    'bought you a fortune cookie. It reads "Give that special someone a compliment"',
+                    'bought you a fortune cookie. It reads "Take a risk!"',
+                    'bought you a fortune cookie. It reads "Go outside."',
+                    'bought you a fortune cookie. It reads "Do not forget to eat your veggies!"',
+                    'bought you a fortune cookie. It reads "Do you even lift?"',
+                    'bought you a fortune cookie. It reads "m808 pls"',
+                    'bought you a fortune cookie. It reads "If you move your hips, you will get all the ladies."',
+                    'bought you a fortune cookie. It reads "I love you."',
+                    'bought you a Golden Cookie. You cannot eat it because it is made of gold. Dammit.',
+                    'bought you an Oreo cookie!',
+                    'bought you a rainbow cookie made with love :heart:',
+                    'bought you an old cookie that was left out in the rain, its moldy.',
+                    'bought you fresh cookies, it smells amazing.'
                 ],
-                getCupcake: function () {
-                    var c = Math.floor(Math.random() * this.cupcakes.length);
-                    return this.cupcakes[c];
+                getCookie: function () {
+                    var c = Math.floor(Math.random() * this.cookies.length);
+                    return this.cookies[c];
                 },
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -112,59 +80,20 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatcupcake);
+                            API.sendChat(basicBot.chat.eatcookie);
                             return false;
                         }
                         else {
                             var name = msg.substring(space + 2);
                             var user = basicBot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nousercupcake, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.nousercookie, {name: name}));
                             }
                             else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfcupcake, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.selfcookie, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.cupcake, {nameto: user.username, namefrom: chat.un, cupcake: this.getCupcake()}));
-                            }
-                        }
-                    }
-                }
-            },
-          
-            burgerCommand: {
-                command: 'burger',
-                rank: 'user',
-                type: 'startsWith',
-                burgers: ['has bought you a Chicken burger! ',
-                    'has bought you a Cajun Chicken burger!.'
-                ],
-                getBurger: function () {
-                    var c = Math.floor(Math.random() * this.burgers.length);
-                    return this.burgers[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.eatdrink);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserburger, {name: name}));
-                            }
-                            else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfburger, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.burger, {nameto: user.username, namefrom: chat.un, burger: this.getBurger()}));
+                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
                             }
                         }
                     }
