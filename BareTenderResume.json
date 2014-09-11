@@ -150,6 +150,10 @@
     "eatcupcake": "/me 'OH! A cupcake with sprinkle on it! Just the way I love it!",
     "nousercupcake": "/me doesn't see %%NAME%% in room and puts the cupcake back. ",
     "selfcupcake": "@%%NAME%% 'Rather than eating it yourself, you should buy a cupcake for someone and get a conversation rolling.' ",
-    "cupcake": "@%%NAMETO%%, %%NAMEFROM%% %%CUPCAKE%%"
+    "cupcake": "@%%NAMETO%%, %%NAMEFROM%% %%CUPCAKE%%",
+    "eatburger": "/me 'No thank you. I'm a little full.' ",
+    "nouserburger": "/me I can't take that order, %%NAME%% isn't in room.' ",
+    "selfburger": "' @%%NAME%% 'Here's a plate of greed-burger.' ",
+    "burger": "/me @%%NAMETO%%, %%NAMEFROM%% %%BURGER%%"
 
 }
