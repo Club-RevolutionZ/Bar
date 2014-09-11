@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.52 Beer",// Teaching how to cook
+        version: "1.53 Donutz",// Teaching how to cook
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1445,6 +1445,46 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.alcohol, {nameto: user.username, namefrom: chat.un, alcohol: this.getAlcohol()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            donutCommand: {
+                command: 'donut',
+                rank: 'user',
+                type: 'startsWith',
+                donuts: ['has bought you a Chocolate donut!',
+                    'has bought you a sugar coated donut!',
+                    'has bought you a half eaten donut.'
+                ],
+                getDonut: function () {
+                    var c = Math.floor(Math.random() * this.donuts.length);
+                    return this.donuts[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatdonut);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserdonut, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfdonut, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.donut, {nameto: user.username, namefrom: chat.un, donut: this.getDonut()}));
                             }
                         }
                     }
