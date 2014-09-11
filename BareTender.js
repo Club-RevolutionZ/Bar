@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.51 Chip",//Cookie category creation
+        version: "1.52 Beer",// Teaching how to cook
         status: true, //false
         name: "BarTender",
         loggedInID: null,
