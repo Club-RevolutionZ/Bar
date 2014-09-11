@@ -146,6 +146,10 @@
     "eatchips": "/me 'Almost everytime I get a bag of chips filled with 80% air!!! ",
     "nouserchips": "/me doesn't see %%NAME%% in room and eats the bag of chips alone. :trollface: ",
     "selfchips": "' @%%NAME%% 'That bag of chips is a little salty. You want a drink with that?' ",
-    "chips": "/me @%%NAMETO%%, %%NAMEFROM%% %%CHIPS%%"
+    "chips": "/me @%%NAMETO%%, %%NAMEFROM%% %%CHIPS%%",
+    "eatcupcake": "/me 'OH! A cupcake with sprinkle on it! Just the way I love it!",
+    "nousercupcake": "/me doesn't see %%NAME%% in room and puts the cupcake back. ",
+    "selfcupcake": "@%%NAME%% 'Rather than eating it yourself, you should buy a cupcake for someone and get a conversation rolling.' ",
+    "cupcake": "@%%NAMETO%%, %%NAMEFROM%% %%CUPCAKE%%"
 
 }
