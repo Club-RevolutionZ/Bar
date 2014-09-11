@@ -138,7 +138,5 @@
     "eatdonut": "/me 'Hmm...Donuts...Yummy... :doughnut: :yum:' https://lconn22.files.wordpress.com/2014/06/wqxc6qz.gif",
     "nouserdonut": "/me doesn't see %%NAME%% in room and eats the :cookie: by himself.:trollface: http://cdn.business2community.com/wp-content/uploads/2014/06/giphy121.gif",
     "selfdonut": "/me '@%%NAME%%,Happy with YOUR donut?' http://cdn0.sbnation.com/imported_assets/2016859/homer-donut-machine-simpsons.gif",
-    "donut": "/me @%%NAMETO%%, @%%NAMEFROM%% %%DONUT%%",
-    
-
+    "donut": "/me @%%NAMETO%%, @%%NAMEFROM%% %%DONUT%%"
 }
