@@ -1490,7 +1490,7 @@
                     }
                 }
             },
-            
+            /*
             PizzaCommand: {
                 command: 'pizza',
                 rank: 'user',
@@ -1610,7 +1610,7 @@
                     }
                 }
             },
-            
+            */
             drinkCommand: {
                 command: 'drink',
                 rank: 'user',
@@ -1657,7 +1657,7 @@
                     }
                 }
             },
-            
+            /*
             burgerCommand: {
                 command: 'burger',
                 rank: 'user',
@@ -1695,7 +1695,7 @@
                         }
                     }
                 }
-            },
+            },*/
             
             cycleguardCommand: {
                 command: 'cycleguard',
