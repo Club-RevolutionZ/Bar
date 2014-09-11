@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.5",//FIXED FB LINK.
+        version: "1.51",//FIXED FB LINK.
         status: true, //false
         name: "BarTender",
         loggedInID: null,
