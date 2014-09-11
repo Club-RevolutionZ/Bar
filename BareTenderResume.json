@@ -74,9 +74,9 @@
     "bouncerplusrank": "/me @%%NAME%%, you ain't my manager to tell me to operate Bouncer+!:japanese_ogre:",
     "chatcleared": "/me @%%NAME%% Cleared the chat.",
     "commandslink": "/me %%BOTNAME%% commands: %%LINK%%",
-    "eatdrink": "/me drank his Cola. :tropical_drink:",
-    "nouserdrink": "/me *doesn't see %%NAME%% in room and drinks it himself.*:trollface:",
-    "selfdrink": "/me '@%%NAME%%, here's a icebreaker tip:small_blue_diamond:. Buy someone else a drink.",
+    "eatdrink": "/me secretly sips a glass of bourbon.:trollface:",
+    "nouserdrink": "/me doesn't see %%NAME%% in room and drinks it himself.:trollface:",
+    "selfdrink": "/me @%%NAME%%, you're a bit drunk, aren't you? Stop drinking yourself and share with other people!:busts_in_silhouette:",
     "drink": "/me @%%NAMETO%%, @%%NAMEFROM%% %%DRINK%%",
     "cycleguardtime": "/me [@%%NAME%%] The cycleguard is set to %%TIME%% minute(s).",
     "dclookuprank": "/me [@%%NAME%%] Only bouncers and above can do a lookup for others.",
@@ -127,4 +127,5 @@
     "voteratio": "/me [@%%NAME%%] @%%USERNAME%% ~ woots: ' + %%WOOT%% + ', mehs: %%MEHS%%, ratio (w/m): %%RATIO%%.",
     "website": "/me Please visit our website: %%LINK%%",
     "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%"
+
 }
