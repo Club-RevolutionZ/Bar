@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.53 Donutz",// Teaching how to cook
+        version: "1.54 Pizza",// Teaching how to cook
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1485,6 +1485,46 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.donut, {nameto: user.username, namefrom: chat.un, donut: this.getDonut()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            pizzaCommand: {
+                command: 'pizza',
+                rank: 'user',
+                type: 'startsWith',
+                pizzas: ['has bought you a Chicken pizza!',
+                    'has bought you a Hawaiian pizza!',
+                    'has bought you a half eaten pizza.'
+                ],
+                getPizza: function () {
+                    var c = Math.floor(Math.random() * this.piza.length);
+                    return this.pizzas[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatpizza);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserpizza, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfpizza, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.pizza, {nameto: user.username, namefrom: chat.un, pizza: this.getPizza()}));
                             }
                         }
                     }
