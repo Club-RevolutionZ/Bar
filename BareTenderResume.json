@@ -129,15 +129,19 @@
     "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%",
     "eatcookie": "/me 'I swear the Cookie Jar is hidden somewhere here... :persevere:'",
     "nousercookie": "/me doesn't see %%NAME%% in room and eats the :cookie: by himself.:trollface:",
-    "selfcookie": "/me '@%%NAME%%, did you just sneak a :cookie: into your mouth?'",
+    "selfcookie": "' @%%NAME%%, did you just sneak a :cookie: into your mouth?'",
     "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
     "eatalcohol": "/me *secretly sips a glass of :beer: Bourbon.* :trollface:",
     "nouseralcohol": "/me *doesn't see %%NAME%% in room and stores the alcoholic beverage back in the fridge. :bowtie:*",
-    "selfalcohol": "/me '@%%NAME%%, a chilled glass of Tiger Beer for you sir.' :beer:",
+    "selfalcohol": "' @%%NAME%%, a chilled glass of Tiger Beer for you sir.' :beer:",
     "alcohol": "/me @%%NAMETO%%, @%%NAMEFROM%% %%ALCOHOL%%",
     "eatdonut": "/me 'Hmm...Donuts...Yummy... :doughnut: :yum:' https://lconn22.files.wordpress.com/2014/06/wqxc6qz.gif",
     "nouserdonut": "/me doesn't see %%NAME%% in room and eats the :cookie: by himself.:trollface: http://cdn.business2community.com/wp-content/uploads/2014/06/giphy121.gif",
-    "selfdonut": "/me '@%%NAME%%,Happy with YOUR donut?' http://cdn0.sbnation.com/imported_assets/2016859/homer-donut-machine-simpsons.gif",
-    "donut": "/me @%%NAMETO%%, @%%NAMEFROM%% %%DONUT%%"
+    "selfdonut": "' @%%NAME%%,Happy with YOUR donut?' http://cdn0.sbnation.com/imported_assets/2016859/homer-donut-machine-simpsons.gif",
+    "donut": "/me @%%NAMETO%%, @%%NAMEFROM%% %%DONUT%%",
+    "eatpizza": "/me 'Mama mia! I love Italian pizza!!! http://www.hypecasted.com/wp-content/uploads/2012/12/tumblr_lx7hz3pErC1qlhe27o1_500.gif2community.com/wp-content/uploads/2014/06/giphy121.gif",
+    "nouserdonut": "/me doesn't see %%NAME%% in room and stores pizza in the oven again. http://animatedpizzagifs.com/images/bubblin-pizza-time-lapse.gif ",
+    "selfpizza": "@%%NAME%%,'Why don't you buy a pizza for everyone? http://38.media.tumblr.com/tumblr_mdc7tdXumd1rxsftpo1_500.gif",
+    "pizza": "/me @%%NAMETO%%, @%%NAMEFROM%% %%PIZZA%%"
 
 }
