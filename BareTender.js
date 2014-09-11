@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.55 Chips",// Teaching how to cook
+        version: "1.56 cupcakes",// Teaching how to cook
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1565,6 +1565,46 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.chips, {nameto: user.username, namefrom: chat.un, chips: this.getChips()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            cupcakeCommand: {
+                command: 'cupcake',
+                rank: 'user',
+                type: 'startsWith',
+                cupcakes: ['has bought you a Chocolate cupcake!',
+                    'has bought you a Strawberry cupcake!',
+                    'has bought you a cupcake with a worm dancing! "I think that is a real worm."'
+                ],
+                getCupcake: function () {
+                    var c = Math.floor(Math.random() * this.cupcakes.length);
+                    return this.cupcakes[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatcupcake);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nousercupcake, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfcupcake, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.cupcake, {nameto: user.username, namefrom: chat.un, cupcake: this.getCupcake()}));
                             }
                         }
                     }
