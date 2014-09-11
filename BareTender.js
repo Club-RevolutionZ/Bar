@@ -1630,7 +1630,7 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatdrink);
+                            API.sendChat(basicBot.chat.eatburger);
                             return false;
                         }
                         else {
