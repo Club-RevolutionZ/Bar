@@ -125,7 +125,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.51",//FIXED FB LINK.
+        version: "1.51 Chip",//Cookie category creation
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1356,28 +1356,10 @@
             
             cookieCommand: {
                 command: 'cookie',
-                rank: 'host',
+                rank: 'residentdj',
                 type: 'startsWith',
-                cookies: ['has bought you a chocolate chip cookie!',
-                    'has bought you a soft homemade oatmeal cookie!',
-                    'has bought you a plain, dry, old cookie. It was the last one in the bag. Gross.',
-                    'bought you a sugar cookie. What, no frosting and sprinkles? 0/10 would not touch.',
-                    'bought you a chocolate chip cookie. Oh wait, those are raisins. Bleugh!',
-                    'bought you an enormous cookie. Poking it gives you more cookies. Weird.',
-                    'bought you a fortune cookie. It reads "Why are you not working on any projects?"',
-                    'bought you a fortune cookie. It reads "Give that special someone a compliment"',
-                    'bought you a fortune cookie. It reads "Take a risk!"',
-                    'bought you a fortune cookie. It reads "Go outside."',
-                    'bought you a fortune cookie. It reads "Do not forget to eat your veggies!"',
-                    'bought you a fortune cookie. It reads "Do you even lift?"',
-                    'bought you a fortune cookie. It reads "m808 pls"',
-                    'bought you a fortune cookie. It reads "If you move your hips, you will get all the ladies."',
-                    'bought you a fortune cookie. It reads "I love you."',
-                    'bought you a Golden Cookie. You cannot eat it because it is made of gold. Dammit.',
-                    'bought you an Oreo cookie!',
-                    'bought you a rainbow cookie made with love :heart:',
-                    'bought you an old cookie that was left out in the rain, its moldy.',
-                    'bought you fresh cookies, it smells amazing.'
+                cookies: ['has bought you a cup of COOKIE juice! ',
+                    'bakes you fresh cookies, it smells amazing.'
                 ],
                 getCookie: function () {
                     var c = Math.floor(Math.random() * this.cookies.length);
