@@ -126,6 +126,10 @@
     "commandscd": "/me [@%%NAME%%] The cooldown for commands by users is now set to %%TIME%% seconds.",
     "voteratio": "/me [@%%NAME%%] @%%USERNAME%% ~ woots: ' + %%WOOT%% + ', mehs: %%MEHS%%, ratio (w/m): %%RATIO%%.",
     "website": "/me Please visit our website: %%LINK%%",
-    "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%"
+    "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%",
+    "eatcookie": "/me 'I swear the Cookie Jar is hidden somewhere here... :persevere:'",
+    "nousercookie": "/me doesn't see %%NAME%% in room and eats the :cookie: by himself.:trollface:",
+    "selfcookie": "/me '@%%NAME%%, did you just sneak a :cookie: into your mouth?'",
+    "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%"
 
 }
