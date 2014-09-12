@@ -2016,17 +2016,17 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatdice);
+                            API.sendChat(basicBot.chat.eatdice, {namefrom: chat.un, dice: this.getDice()});
                             return false;
                         }
                         else {
                             var name = msg.substring(space + 2);
                             var user = basicBot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserdice, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.nouserdice, {namefrom: chat.un, dice: this.getDice()}));
                             }
                             else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfdice, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.selfdice, {namefrom: chat.un, dice: this.getDice()}));
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.dice, {nameto: user.username, namefrom: chat.un, dice: this.getDice()}));
