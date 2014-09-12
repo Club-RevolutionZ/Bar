@@ -1420,7 +1420,14 @@
                 alcohols: ['has bought you a pint of Johny Walker!',
                     'has bought you a glass of Vodka!',
                     'has bought you an empty glass...',
-                    'has bought you a glass of scotch, cause he is classy mofo.',
+                    'has bought you a bottle of Budweiser beer.',
+                    'has bought you a bottle of Bud Light beer.',
+                    'has bought you a bottle of Heineken beer.',
+                    'has bought you a bottle of Guinness Stout beer.',
+                    'has bought you a bottle of Sam Adams beer.',',
+                    'has bought you a bottle of Becks beer.',
+                    'has bought you a bottle of Corana beer.',
+                    'has bought you a pint of scotch, cause he is classy mofo.',
                     'has bought you nothing, cause he is too cheap.'
                 ],
                 getAlcohol: function () {
@@ -1459,12 +1466,12 @@
                 command: 'donut',
                 rank: 'user',
                 type: 'startsWith',
-                donuts: ['has bought you a Chocolate donut!',
+                donuts: ['has bought you a Chocolate Iced glazed donut!',
                     'has bought you a sugar coated donut!',
                     'has bought you a half eaten donut.',
                     'has bought you a fat free donut.',
-                    'has bought you a chocolate donut.',
-                    'has bought you a chocolate donut with sprinkles.',
+                    'has bought you a Glazed donut.',
+                    'has bought you a Chocolate donut with sprinkles.',
                     'has bought you nothing, cause he is too cheap.',
                     'has bought you the famous Boston cream donut!',
                     'has bought you a Coconut donut!'
@@ -1505,10 +1512,15 @@
                 command: 'pizza',
                 rank: 'residentdj',
                 type: 'startsWith',
-                pizzas: ['has bought you a Chicken pizza!',
-                    'has bought you a Hawaiian pizza!',
+                pizzas: ['has bought you a mini Chicken pizza!',
+                    'has bought you a pan of Hawaiian pizza!',
                     'has bought you a half eaten pizza.',
-                    'has bought you a meat lovers pizza.',
+                    'has bought you a pan of Meat lovers pizza.',
+                    'has bought you a pan of Neapolitan pizza.',
+                    'has bought you a pan of Pepperoni and Cheese pizza.',
+                    'has bought you a pan of Double Cheese pizza.',
+                    'has bought you a pan of BBQ Chicken pizza.',
+                    'has bought you a pan of Chicken Delight',
                     'has bought you a pizza base. "Now go make your own pizza!"',
                     'has bought you nothing, cause he is too cheap.'
                 ],
@@ -1548,11 +1560,19 @@
                 command: 'icecream',
                 rank: 'user',
                 type: 'startsWith',
-                icecreams: ['has bought you a Chocolate icecream!',
-                    'has bought you a sprinkle coated icecream!',
-                    'has bought you a half licked icecream.',
-                    'has bought you an empty cone.',
-                    'has bought you nothing, cause he is too cheap.'
+                icecreams: ['has bought you a Chocolate flavored icecream in cone.',
+                    'has bought you a Sprinkle coated Vanilla flavored icecream in a cone.',
+                    'has bought you a half licked icecream in a cone.',
+                    'has bought you a Strawberry flavored icecream in cone.',
+                    'has bought you a Vanilla with chocolate chip flavored icecream in cone.',
+                    'has bought you a  Mint with Chocolate chip  flavored icecream in cone.',
+                    'has bought you a Coffee flavored icecream in cone.',
+                    'has bought you a tub of Chocoalte ice cream!',
+                    'has bought you a tub of Vanilla ice cream!',
+                    'has bought you a tub of Strawberry ice cream!',
+                    'has bought you a tub of Napolean ice cream',
+                    'has bought you a half eatten tub of ice cream',
+                    'has bought you an empty cone.'
                 ],
                 getIcecream: function () {
                     var c = Math.floor(Math.random() * this.icecreams.length);
@@ -1580,46 +1600,6 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.icecream, {nameto: user.username, namefrom: chat.un, icecream: this.getIcecream()}));
-                            }
-                        }
-                    }
-                }
-            },
-            
-            sweetCommand: {
-                command: 'sweet',
-                rank: 'user',
-                type: 'startsWith',
-                sweets: ['has bought you a sweet!',
-                    'has bought you a sprinkle coated icecream!',
-                    'has bought you a half licked icecream.'
-                ],
-                getSweet: function () {
-                    var c = Math.floor(Math.random() * this.sweets.length);
-                    return this.sweets[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.eatsweet);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nousersweet, {name: name}));
-                            }
-                            else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfsweet, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.sweet, {nameto: user.username, namefrom: chat.un, sweet: this.getSweet()}));
                             }
                         }
                     }
