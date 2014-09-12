@@ -1355,7 +1355,7 @@
             cookieCommand: {
                 command: 'cookie',
                 rank: 'cohost',
-                chat.type == 'message',//type: 'startsWith',
+                type: 'startsWith',
                 cookies: ['has bought you a chocolate chip cookie!',
                     'has bought you a soft homemade oatmeal cookie!',
                     'has bought you a plain, dry, old cookie. It was the last one in the bag. Gross.',
