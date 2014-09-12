@@ -118,9 +118,39 @@
         }
 
     };
+    String.prototype.splitBetween = function(a, b){
+        var self = this;
+        self = this.split(a);
+        for(var i = 0; i < self.length; i++){
+            self[i] = self[i].split(b);
+        }
+        var arr = [];
+        for(var i = 0; i < self.length; i++){
+            if(Array.isArray(self[i])){
+                for(var j = 0; j < self[i].length; j++){
+                    arr.push(self[i][j]);
+                }
+            }
+            else arr.push(self[i]);
+        }
+        return arr;
+    };
 
-    var botCreator = "ME";
-    var botCreatorIDs = ["3885577"];
+    var linkFixer = function(msg){
+        var parts = msg.splitBetween('<a href="', '<\/a>');
+        for(var i = 1; i < parts.length; i = i+2){
+            var link = parts[i].split('"')[0];
+            parts[i] = link;
+        }
+        var m = '';
+        for(var i = 0; i < parts.length; i++){
+            m += parts[i];
+        }
+        return m;
+    };
+
+    var botCreator = "MEH";
+    var botCreatorIDs = ["100210101012"];
 
     var basicBot = {
         version: "1.75 Imaging",// 
@@ -601,6 +631,7 @@
             }
         },
         eventChat: function (chat) {
+            chat.message = linkFixer(chat.message);
             chat.message = chat.message.trim();
             for (var i = 0; i < basicBot.room.users.length; i++) {
                 if (basicBot.room.users[i].id === chat.uid) {
