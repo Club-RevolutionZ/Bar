@@ -1978,6 +1978,64 @@
                 }
             },
             
+            diceCommand: {
+                command: 'roll_dice',
+                rank: 'residentdj',
+                type: 'startsWith',
+                dices: ['has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
+                    'has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
+                    'has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
+                    'has rolled a Five! http://www.animated-gifs.eu/leisure-games-dice-1/0006.gif',
+                    'has rolled a Five! http://www.animated-gifs.eu/leisure-games-dice-1/0006.gif',
+                    'has rolled a SIX !!! http://www.animated-gifs.eu/leisure-games-dice-1/0007.gif'
+                ],
+                getDice: function () {
+                    var c = Math.floor(Math.random() * this.dices.length);
+                    return this.dices[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatdice);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserdice, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfdice, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.dice, {nameto: user.username, namefrom: chat.un, dice: this.getDice()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
             cycleguardCommand: {
                 command: 'cycleguard',
                 rank: 'bouncer',
