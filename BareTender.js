@@ -1354,8 +1354,8 @@
             
             cookieCommand: {
                 command: 'cookie',
-                rank: 'host',
-                type: 'startsWith',
+                rank: 'cohost',
+                type: 'contains',
                 cookies: ['has bought you a chocolate chip cookie!',
                     'has bought you a soft homemade oatmeal cookie!',
                     'has bought you a plain, dry, old cookie. It was the last one in the bag. Gross.',
@@ -1491,7 +1491,7 @@
             
             pizzaCommand: {
                 command: 'pizza',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 pizzas: ['has bought you a Chicken pizza!',
                     'has bought you a Hawaiian pizza!',
@@ -1651,7 +1651,7 @@
             
             riceCommand: {
                 command: 'rice',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 rices: ['has bought you a chocolate chip rice!',
                     'has bought you a soft homemade oatmeal rice!',
@@ -1691,7 +1691,7 @@
             
             friesCommand: {
                 command: 'fries',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 friess: ['has bought you a chocolate chip fries!',
                     'has bought you a soft homemade oatmeal fries!',
@@ -1731,7 +1731,7 @@
             
             bunCommand: {
                 command: 'bun',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 buns: ['has bought you a chocolate chip bun!',
                     'has bought you a soft homemade oatmeal bun!',
@@ -1811,7 +1811,7 @@
             
             cupcakeCommand: {
                 command: 'cupcake',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 cupcakes: ['has bought you a Chocolate cupcake!',
                     'has bought you a Strawberry cupcake!',
@@ -1851,7 +1851,7 @@
             
             burgerCommand: {
                 command: 'burger',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 burgers: ['has bought you a Chicken burger! ',
                     'has bought you a Cajun Chicken burger!.'
@@ -1890,7 +1890,7 @@
             
             drinkCommand: {
                 command: 'drink',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 drinks: ['has bought you a cup of Apple juice! ',
                     'has bought you a glass of chilled Cola!!',
@@ -1940,7 +1940,7 @@
             
             punishCommand: {
                 command: 'punish',
-                rank: 'residentdj',
+                rank: 'bouncer',
                 type: 'startsWith',
                 punishs: ['HAI-YAH!!!!',
                     'http://gifstumblr.com/images/trying-to-kick-down-a-door-in-real-life_1425.gif',
@@ -1980,29 +1980,29 @@
             
             diceCommand: {
                 command: 'roll_dice',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
-                dices: [' %%NAMEFROM%% has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
-                    ' %%NAMEFROM%% has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
-                    ' %%NAMEFROM%% has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
-                    ' %%NAMEFROM%% has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
-                    ' %%NAMEFROM%% has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
-                    ' %%NAMEFROM%% has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
-                    ' %%NAMEFROM%% has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
-                    ' %%NAMEFROM%% has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
-                    ' %%NAMEFROM%% has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
-                    ' %%NAMEFROM%% has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
-                    ' %%NAMEFROM%% has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
-                    ' %%NAMEFROM%% has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
-                    ' %%NAMEFROM%% has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
-                    ' %%NAMEFROM%% has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
-                    ' %%NAMEFROM%% has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
-                    ' %%NAMEFROM%% has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
-                    ' %%NAMEFROM%% has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
-                    ' %%NAMEFROM%% has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
-                    ' %%NAMEFROM%% has rolled a Five! http://www.animated-gifs.eu/leisure-games-dice-1/0006.gif',
-                    ' %%NAMEFROM%% has rolled a Five! http://www.animated-gifs.eu/leisure-games-dice-1/0006.gif',
-                    ' %%NAMEFROM%% has rolled a SIX !!! http://www.animated-gifs.eu/leisure-games-dice-1/0007.gif'
+                dices: ['has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled an One. http://www.animated-gifs.eu/leisure-games-dice-1/0002.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Two. http://www.animated-gifs.eu/leisure-games-dice-1/0003.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Three. http://www.animated-gifs.eu/leisure-games-dice-1/0004.gif',
+                    'has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
+                    'has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
+                    'has rolled a Four. http://www.animated-gifs.eu/leisure-games-dice-1/0005.gif',
+                    'has rolled a Five! http://www.animated-gifs.eu/leisure-games-dice-1/0006.gif',
+                    'has rolled a Five! http://www.animated-gifs.eu/leisure-games-dice-1/0006.gif',
+                    'has rolled a SIX !!! http://www.animated-gifs.eu/leisure-games-dice-1/0007.gif'
                 ],
                 getDice: function () {
                     var c = Math.floor(Math.random() * this.dices.length);
