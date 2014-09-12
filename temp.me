@@ -4,7 +4,7 @@ chocolate
 rice
 fries
 Bun http://en.wikipedia.org/wiki/Category:Buns
-http://en.wikipedia.org/wiki/Category:Cookies
+http://en.wikipedia.org/wiki/Category:Co?okies
 http://en.wikipedia.org/wiki/Category:Doughnuts
 
 ,
@@ -15,17 +15,17 @@ http://en.wikipedia.org/wiki/Category:Doughnuts
 
     
             
-            cookieCommand: {
-                command: 'cookie',
+            foodCommand: {
+                command: 'food',
                 rank: 'residentdj',
                 type: 'startsWith',
-                cookies: ['has bought you a chocolate chip cookie!',
-                    'has bought you a soft homemade oatmeal cookie!',
-                    'bought you fresh cookies, it smells amazing.'
+                foods: ['has bought you a chocolate chip food!',
+                    'has bought you a soft homemade oatmeal food!',
+                    'bought you fresh foods, it smells amazing.'
                 ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
+                getFood: function () {
+                    var c = Math.floor(Math.random() * this.foods.length);
+                    return this.foods[c];
                 },
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -35,20 +35,20 @@ http://en.wikipedia.org/wiki/Category:Doughnuts
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatcookie);
+                            API.sendChat(basicBot.chat.eatfood);
                             return false;
                         }
                         else {
                             var name = msg.substring(space + 2);
                             var user = basicBot.userUtilities.lookupUserName(name);
                             if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nousercookie, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.nouserfood, {name: name}));
                             }
                             else if (user.username === chat.un) {
-                                return API.sendChat(subChat(basicBot.chat.selfcookie, {name: name}));
+                                return API.sendChat(subChat(basicBot.chat.selffood, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
+                                return API.sendChat(subChat(basicBot.chat.food, {nameto: user.username, namefrom: chat.un, food: this.getFood()}));
                             }
                         }
                     }
