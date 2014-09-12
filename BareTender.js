@@ -212,7 +212,7 @@
             youtubeLink: null,
             website: " :house: http://tinyurl.com/ClubRevolutionZ",
             intervalMessages: "INT MSG!", //unknown, broken
-            messageInterval: 1,
+            messageInterval: null,
             songstats: false, 
             commandLiteral: "!" // !
         },
