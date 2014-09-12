@@ -178,6 +178,10 @@
     "eatbun": "/me Eats the bun like a child",
     "nouserbun": "/me doesn't see %%NAME%% in room and stuffs the bun into his mouth. ",
     "selfbun": "' @%%NAME%% BUN-appetite! Get it?' ",
-    "bun": "/me @%%NAMETO%%, @%%NAMEFROM%% %%BUN%%"
+    "bun": "/me @%%NAMETO%%, @%%NAMEFROM%% %%BUN%%",
+    "eatpunish": "/me You want a piece of me? http://25.media.tumblr.com/tumblr_m6ts4zTHhR1roc7alo1_400.gif ",
+    "nouserpunish": "/me %%NAME%% isn't in the room. Stop raging. http://motivationofself.com/wp-content/uploads/waynes-world-shirt-rips-off-fight-scene-13564277721.gif",
+    "selfpunish": "' @%%NAME%% certainly has the moves. http://uproxx.files.wordpress.com/2013/07/crazy-arms.gif",
+    "punish": "/me @%%NAMETO%%, @%%NAMEFROM%% %%PUNISH%%"
 
 }
