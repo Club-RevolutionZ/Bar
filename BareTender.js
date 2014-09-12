@@ -214,7 +214,7 @@
             intervalMessages: "INT MSG!", //unknown, broken
             messageInterval: 1,
             songstats: false, 
-            commandLiteral: "!"
+            commandLiteral: "." // !
         },
         room: {
             users: [], //chk this
@@ -458,7 +458,7 @@
                         rankInt = 7;
                         break;
                     case "host":
-                        rankInt = 5; //5
+                        rankInt = 10; //5
                         break;
                     case "cohost":
                         rankInt = 4;
@@ -1097,7 +1097,7 @@
                         minPerm = 7;
                         break;
                     case 'host':
-                        minPerm = 5; //5
+                        minPerm = 10; //5
                         break;
                     case 'cohost':
                         minPerm = 4;
