@@ -1942,9 +1942,7 @@
                 command: 'profile',
                 rank: 'user',
                 type: 'startsWith',
-                profiles: ['has bought you a chocolate chip profile!',
-                    'has bought you a soft homemade oatmeal profile!',
-                    'bought you fresh profiles, it smells amazing.'
+                profiles: [' https://plug.dj/@/'
                 ],
                 getProfile: function () {
                     var c = Math.floor(Math.random() * this.profiles.length);
