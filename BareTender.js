@@ -214,7 +214,7 @@
             intervalMessages: "INT MSG!", //unknown, broken
             messageInterval: 1,
             songstats: false, 
-            commandLiteral: "." // !
+            commandLiteral: "!" // !
         },
         room: {
             users: [], //chk this
