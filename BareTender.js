@@ -1938,6 +1938,46 @@
                 }
             },
             
+            profileCommand: {
+                command: 'profile',
+                rank: 'residentdj',
+                type: 'startsWith',
+                profiles: ['has bought you a chocolate chip profile!',
+                    'has bought you a soft homemade oatmeal profile!',
+                    'bought you fresh profiles, it smells amazing.'
+                ],
+                getProfile: function () {
+                    var c = Math.floor(Math.random() * this.profiles.length);
+                    return this.profiles[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatprofile);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserprofile, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfprofile, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.profile, {nameto: user.username, namefrom: chat.un, profile: this.getProfile()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
             punishCommand: {
                 command: 'punish',
                 rank: 'bouncer',
