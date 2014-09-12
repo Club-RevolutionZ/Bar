@@ -2246,36 +2246,6 @@
                     }
                 }
             },
-            brbCommand: {
-                command: 'brb',
-                rank: 'user',
-                type: 'startsWith',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.brbLink);
-                        var argument = msg.substring(cmd.length + 1);
-                        
-                    }
-                }
-            },
-            afkCommand: {
-                command: 'afk',
-                rank: 'user',
-                type: 'startsWith',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.afkLink);
-                        var argument = msg.substring(cmd.length + 1);
-                        
-                    }
-                }
-            },
             
 
             filterCommand: {
