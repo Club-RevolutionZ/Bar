@@ -458,7 +458,7 @@
                         rankInt = 7;
                         break;
                     case "host":
-                        rankInt = 10; //5
+                        rankInt = 5; //5
                         break;
                     case "cohost":
                         rankInt = 4;
