@@ -1943,7 +1943,8 @@
                 rank: 'residentdj',
                 type: 'startsWith',
                 punishs: ['HAI-YAH!!!!',
-                    'http://gifstumblr.com/images/trying-to-kick-down-a-door-in-real-life_1425.gif'
+                    'http://gifstumblr.com/images/trying-to-kick-down-a-door-in-real-life_1425.gif',
+                    'http://sim.in.com/1456413ebc43427f56008c63d3153cff.gif'
                 ],
                 getPunish: function () {
                     var c = Math.floor(Math.random() * this.punishs.length);
