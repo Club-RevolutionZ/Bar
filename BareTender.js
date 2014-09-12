@@ -1417,7 +1417,9 @@
                 type: 'startsWith',
                 alcohols: ['has bought you a pint of Johny Walker!',
                     'has bought you a glass of Vodka!',
-                    'has bought you an empty glass...'
+                    'has bought you an empty glass...',
+                    'has bought you a glass of scotch, cause he is classy mofo.',
+                    'has bought you nothing, cause he is too cheap.'
                 ],
                 getAlcohol: function () {
                     var c = Math.floor(Math.random() * this.alcohols.length);
@@ -1457,7 +1459,13 @@
                 type: 'startsWith',
                 donuts: ['has bought you a Chocolate donut!',
                     'has bought you a sugar coated donut!',
-                    'has bought you a half eaten donut.'
+                    'has bought you a half eaten donut.',
+                    'has bought you a fat free donut.',
+                    'has bought you a chocolate donut.',
+                    'has bought you a chocolate donut with sprinkles.',
+                    'has bought you nothing, cause he is too cheap.',
+                    'has bought you the famous Boston cream donut!'
+                    'has bought you a Coconut donut!'
                 ],
                 getDonut: function () {
                     var c = Math.floor(Math.random() * this.donuts.length);
@@ -1497,7 +1505,10 @@
                 type: 'startsWith',
                 pizzas: ['has bought you a Chicken pizza!',
                     'has bought you a Hawaiian pizza!',
-                    'has bought you a half eaten pizza.'
+                    'has bought you a half eaten pizza.',
+                    'has bought you a meat lovers pizza.',
+                    'has bought you a pizza base. "Now go make your own pizza!"',
+                    'has bought you nothing, cause he is too cheap.'
                 ],
                 getPizza: function () {
                     var c = Math.floor(Math.random() * this.pizza.length);
@@ -1537,7 +1548,9 @@
                 type: 'startsWith',
                 icecreams: ['has bought you a Chocolate icecream!',
                     'has bought you a sprinkle coated icecream!',
-                    'has bought you a half licked icecream.'
+                    'has bought you a half licked icecream.',
+                    'has bought you an empty cone.',
+                    'has bought you nothing, cause he is too cheap.'
                 ],
                 getIcecream: function () {
                     var c = Math.floor(Math.random() * this.icecreams.length);
@@ -1697,7 +1710,9 @@
                 type: 'startsWith',
                 friess: ['has bought you a chocolate chip fries!',
                     'has bought you a soft homemade oatmeal fries!',
-                    'bought you fresh friess, it smells amazing.'
+                    'bought you fresh friess, it smells amazing.',
+                    'Has bought you Fries, would you like a burger with those fries?',
+                    'has bought you nothing, cause he is too cheap.'
                 ],
                 getFries: function () {
                     var c = Math.floor(Math.random() * this.friess.length);
@@ -1737,7 +1752,10 @@
                 type: 'startsWith',
                 buns: ['has bought you a chocolate chip bun!',
                     'has bought you a soft homemade oatmeal bun!',
-                    'bought you fresh buns, it smells amazing.'
+                    'has bought you fresh buns, it smells amazing.',
+                    'has bought you a Cream bun! "It looks like cream...but is it actually cream?" ',
+                    'has bought you a fresh Honey bun! "Dont mind the bees in it." ',
+                    'has bought you a hotdog bun!'
                 ],
                 getBun: function () {
                     var c = Math.floor(Math.random() * this.buns.length);
@@ -1856,7 +1874,8 @@
                 rank: 'residentdj',
                 type: 'startsWith',
                 burgers: ['has bought you a Chicken burger! ',
-                    'has bought you a Cajun Chicken burger!.'
+                    'has bought you a Cajun Chicken burger!.',
+                    'has bought you a  Beef Deulax burger. "Would you like fries with that heart-attack?" '
                 ],
                 getBurger: function () {
                     var c = Math.floor(Math.random() * this.burgers.length);
