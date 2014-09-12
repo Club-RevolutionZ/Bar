@@ -685,7 +685,14 @@
         eventDjadvance: function (obj) {
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return void (0);
-            if (basicBot.settings.songstats) API.sendChat("/me " + lastplay.media.author + " - " + lastplay.media.title + ": " + lastplay.score.positive + "W/" + lastplay.score.grabs + "G/" + lastplay.score.negative + "M.")
+            if (basicBot.settings.songstats){
+                if(typeof basicBot.chat.songstatistics === "undefined")
+                {
+                    API.sendChat("/me " + lastplay.media.author + " - " + lastplay.media.title + ": " + lastplay.score.positive + "W/" + lastplay.score.grabs + "G/" + lastplay.score.negative + "M.")
+                 }
+               else{API.sendChat(subChat(basicBot.chat.songstatistics, {artist: lastplay.media.author, title: lastplay.media.title, woots: lastplay.score.positive, grabs: lastplay.score.grabs, mehs: lastplay.score.negative}))
+               }
+            }
             basicBot.room.roomstats.totalWoots += lastplay.score.positive;
             basicBot.room.roomstats.totalMehs += lastplay.score.negative;
             basicBot.room.roomstats.totalCurates += lastplay.score.grabs;
@@ -700,7 +707,7 @@
                     var lastPlayed = basicBot.room.historyList[i][plays];
                     API.sendChat(subChat(basicBot.chat.songknown, {plays: plays, timetotal: basicBot.roomUtilities.msToStr(Date.now() - firstPlayed), lasttime: basicBot.roomUtilities.msToStr(Date.now() - lastPlayed)}));
                     basicBot.room.historyList[i].push(+new Date());
-                    alreadyPlayed = false;//true;
+                    alreadyPlayed = true;
                 }
             }
             if (!alreadyPlayed) {
