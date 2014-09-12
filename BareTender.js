@@ -1424,7 +1424,7 @@
                     'has bought you a bottle of Bud Light beer.',
                     'has bought you a bottle of Heineken beer.',
                     'has bought you a bottle of Guinness Stout beer.',
-                    'has bought you a bottle of Sam Adams beer.',',
+                    'has bought you a bottle of Sam Adams beer.',
                     'has bought you a bottle of Becks beer.',
                     'has bought you a bottle of Corana beer.',
                     'has bought you a pint of scotch, cause he is classy mofo.',
