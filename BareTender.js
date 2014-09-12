@@ -123,7 +123,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.585 IceSweet",// 
+        version: "1.59 Choct",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1611,14 +1611,14 @@
             
             chocolateCommand: {
                 command: 'chocolate',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
-                chocolates: ['has bought you a caramel chocolate!',
-                    'has bought you a dark chocolate!',
-                    'has bought you a half eaten chocolate.'
+                chocolates: ['has bought you a chocolate chip chocolate!',
+                    'has bought you a soft homemade oatmeal chocolate!',
+                    'bought you fresh chocolates, it smells amazing.'
                 ],
                 getChocolate: function () {
-                    var c = Math.floor(Math.random() * this.chocolate.length);
+                    var c = Math.floor(Math.random() * this.chocolates.length);
                     return this.chocolates[c];
                 },
                 functionality: function (chat, cmd) {
@@ -1651,14 +1651,14 @@
             
             riceCommand: {
                 command: 'rice',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
-                rices: ['has bought you a Chicken rice!',
-                    'has bought you a Hawaiian rice!',
-                    'has bought you a half eaten rice.'
+                rices: ['has bought you a chocolate chip rice!',
+                    'has bought you a soft homemade oatmeal rice!',
+                    'bought you fresh rices, it smells amazing.'
                 ],
                 getRice: function () {
-                    var c = Math.floor(Math.random() * this.rice.length);
+                    var c = Math.floor(Math.random() * this.rices.length);
                     return this.rices[c];
                 },
                 functionality: function (chat, cmd) {
@@ -1691,14 +1691,14 @@
             
             friesCommand: {
                 command: 'fries',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
-                friess: ['has bought you a Fish fingers fries!',
-                    'has bought you a Hawaiian fries!',
-                    'has bought you a soggy box fries.'
+                friess: ['has bought you a chocolate chip fries!',
+                    'has bought you a soft homemade oatmeal fries!',
+                    'bought you fresh friess, it smells amazing.'
                 ],
                 getFries: function () {
-                    var c = Math.floor(Math.random() * this.fries.length);
+                    var c = Math.floor(Math.random() * this.friess.length);
                     return this.friess[c];
                 },
                 functionality: function (chat, cmd) {
@@ -1731,14 +1731,14 @@
             
             bunCommand: {
                 command: 'bun',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
-                buns: ['has bought you a bun!',
-                    'has bought you a Hawaiian bun!',
-                    'has bought you a half eaten bun.'
+                buns: ['has bought you a chocolate chip bun!',
+                    'has bought you a soft homemade oatmeal bun!',
+                    'bought you fresh buns, it smells amazing.'
                 ],
                 getBun: function () {
-                    var c = Math.floor(Math.random() * this.bun.length);
+                    var c = Math.floor(Math.random() * this.buns.length);
                     return this.buns[c];
                 },
                 functionality: function (chat, cmd) {
