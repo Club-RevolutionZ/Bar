@@ -1027,6 +1027,13 @@
             if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
+            basicBot.connectAPI();
+            API.moderateDeleteChat = function(cid){
+                $.ajax({
+                    url: "https://plug.dj/_/chat/"+cid,
+                    type: "DELETE"
+                })
+            };
             retrieveSettings();
             retrieveFromStorage();
             if (basicBot.room.roomstats.launchTime === null) {
