@@ -129,7 +129,7 @@
     "youtube": "/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%",
     
     
-    "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M."
+    "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
     
     
     "eatcookie": "/me 'I swear the Cookie Jar is hidden somewhere here...' http://media.giphy.com/media/11Mgf63VqXNYic/giphy.gif",
