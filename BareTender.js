@@ -3,8 +3,6 @@
  *Modifications (including forks) of the code to fit personal needs are allowed only for personal use and should refer back to the original source.
  *This software is not for profit, any extension, or unauthorised person providing this software is not authorised to be in a position of any monetary gain from this use of this software. Any and all money gained under the use of the software (which includes donations) must be passed on to the original author.
  */
-
-
 (function () {
 
     var kill = function () {
@@ -125,7 +123,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.6",// 
+        version: "1.58 Ice",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1500,7 +1498,7 @@
                     'has bought you a half eaten pizza.'
                 ],
                 getPizza: function () {
-                    var c = Math.floor(Math.random() * this.piza.length);
+                    var c = Math.floor(Math.random() * this.pizza.length);
                     return this.pizzas[c];
                 },
                 functionality: function (chat, cmd) {
@@ -1525,6 +1523,246 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.pizza, {nameto: user.username, namefrom: chat.un, pizza: this.getPizza()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            icecreanCommand: {
+                command: 'icecream',
+                rank: 'user',
+                type: 'startsWith',
+                icecreams: ['has bought you a Chocolate icecream!',
+                    'has bought you a sprinkle coated icecream!',
+                    'has bought you a half licked icecream.'
+                ],
+                getIcecream: function () {
+                    var c = Math.floor(Math.random() * this.icecreams.length);
+                    return this.icecreams[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eaticecream);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nousericecream, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selficecream, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.icecream, {nameto: user.username, namefrom: chat.un, icecream: this.getIcecream()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            sweetCommand: {
+                command: 'sweet',
+                rank: 'user',
+                type: 'startsWith',
+                sweets: ['has bought you a sugary sweet!',
+                    'has bought you a milky flavored sweet!',
+                    'has bought you a rotten sweet.'
+                ],
+                getSweet: function () {
+                    var c = Math.floor(Math.random() * this.sweet.length);
+                    return this.sweets[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatsweet);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nousersweet, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfsweet, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.sweet, {nameto: user.username, namefrom: chat.un, sweet: this.getSweet()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            chocolateCommand: {
+                command: 'chocolate',
+                rank: 'user',
+                type: 'startsWith',
+                chocolates: ['has bought you a caramel chocolate!',
+                    'has bought you a dark chocolate!',
+                    'has bought you a half eaten chocolate.'
+                ],
+                getChocolate: function () {
+                    var c = Math.floor(Math.random() * this.chocolate.length);
+                    return this.chocolates[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatchocolate);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserchocolate, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfchocolate, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.chocolate, {nameto: user.username, namefrom: chat.un, chocolate: this.getChocolate()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            riceCommand: {
+                command: 'rice',
+                rank: 'user',
+                type: 'startsWith',
+                rices: ['has bought you a Chicken rice!',
+                    'has bought you a Hawaiian rice!',
+                    'has bought you a half eaten rice.'
+                ],
+                getRice: function () {
+                    var c = Math.floor(Math.random() * this.rice.length);
+                    return this.rices[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatrice);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserrice, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfrice, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.rice, {nameto: user.username, namefrom: chat.un, rice: this.getRice()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            friesCommand: {
+                command: 'fries',
+                rank: 'user',
+                type: 'startsWith',
+                friess: ['has bought you a Fish fingers fries!',
+                    'has bought you a Hawaiian fries!',
+                    'has bought you a soggy box fries.'
+                ],
+                getFries: function () {
+                    var c = Math.floor(Math.random() * this.fries.length);
+                    return this.friess[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatfries);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserfries, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selffries, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.fries, {nameto: user.username, namefrom: chat.un, fries: this.getFries()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            bunCommand: {
+                command: 'bun',
+                rank: 'user',
+                type: 'startsWith',
+                buns: ['has bought you a bun!',
+                    'has bought you a Hawaiian bun!',
+                    'has bought you a half eaten bun.'
+                ],
+                getBun: function () {
+                    var c = Math.floor(Math.random() * this.bun.length);
+                    return this.buns[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            API.sendChat(basicBot.chat.eatbun);
+                            return false;
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserbun, {name: name}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfbun, {name: name}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.bun, {nameto: user.username, namefrom: chat.un, bun: this.getBun()}));
                             }
                         }
                     }
