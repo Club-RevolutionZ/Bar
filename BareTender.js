@@ -123,7 +123,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.7 Image",// 
+        version: "1.70 Profile TEST",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -1940,7 +1940,7 @@
             
             profileCommand: {
                 command: 'profile',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 profiles: ['has bought you a chocolate chip profile!',
                     'has bought you a soft homemade oatmeal profile!',
