@@ -2016,8 +2016,7 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            API.sendChat(basicBot.chat.eatdice, {namefrom: chat.un, dice: this.getDice()});
-                            return false;
+                            return API.sendChat(subChat(basicBot.chat.eatdice, {namefrom: chat.un, dice: this.getDice()}));
                         }
                         else {
                             var name = msg.substring(space + 2);
