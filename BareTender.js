@@ -1354,7 +1354,7 @@
             
             cookieCommand: {
                 command: 'cookie',
-                rank: 'residentdj',
+                rank: 'host',
                 type: 'startsWith',
                 cookies: ['has bought you a chocolate chip cookie!',
                     'has bought you a soft homemade oatmeal cookie!',
