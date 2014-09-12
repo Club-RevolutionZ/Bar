@@ -172,7 +172,7 @@
             opLink: null,
             rulesLink:" :hammer: http://tinyurl.com/ClubRevolutionZRules",
             themeLink: " :tada: http://tinyurl.com/ClubRevolutionZCurrentEvent",
-            fbLink: " :+1: https://www.facebook.com/ClubRevolutionZ",
+            fbLink: "https://www.facebook.com/ClubRevolutionZ",
             youtubeLink: null,
             website: " :house: http://tinyurl.com/ClubRevolutionZ",
             intervalMessages: "INT MSG!", //unknown, broken
@@ -2183,7 +2183,7 @@
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (this.type === 'startsWith' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
@@ -2193,6 +2193,33 @@
                     }
                 }
             },
+            hiCommand: {
+                command: 'hi',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.hiLink);
+                        var argument = msg.substring(cmd.length + 1);
+                        
+                    }
+                }
+            },
+            
+            byeCommand: {
+                command: 'bye',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.byeLink);
+                        var argument = msg.substring(cmd.length + 1);
+                }
+            },
+            
 
             filterCommand: {
                 command: 'filter',
