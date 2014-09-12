@@ -714,7 +714,7 @@
                     basicBot.room.users[i].votes.curate++;
                 }
             }
-        },
+        },/*
         eventDjadvance: function (obj) {
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return void (0);
@@ -771,7 +771,7 @@
             }
             storeToStorage();
 
-        },
+        },*/
         eventWaitlistupdate: function (users) {
             if (users.length < 50) {
                 if (basicBot.room.queue.id.length > 0 && basicBot.room.queueable) {
