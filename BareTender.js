@@ -1676,7 +1676,7 @@
                     'has bought you a plate of Brown Rice.',
                     'has bought you a small Rice Ball.',
                     'has bought you a Rice Ball.',
-                    'has bought you a GIANT Rice Ball !!!',.',
+                    'has bought you a GIANT Rice Ball !!!',
                     'has bought you a plate of Lemon Rice.'
                 ],
                 getRice: function () {
