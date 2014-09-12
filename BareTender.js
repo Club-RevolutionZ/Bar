@@ -123,7 +123,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.6 Game",// 
+        version: "1.7 Image",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
