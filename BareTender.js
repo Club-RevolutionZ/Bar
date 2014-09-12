@@ -172,8 +172,8 @@
             opLink: null,
             hiLink: " http://s2.favim.com/orig/36/stitch-Favim.com-298022.gif ",
             byeLink: " http://25.media.tumblr.com/tumblr_m6xj6f6qak1raa31eo1_500.gif ",
-            brbLink: " http://media.giphy.com/media/8OUdE03f3Nauc/giphy.gif "
-            afkLink: " http://fc00.deviantart.net/fs70/f/2013/030/d/6/afking_gif_by_fierying-d5t8c31.gif "
+            brbLink: " http://media.giphy.com/media/8OUdE03f3Nauc/giphy.gif ",
+            afkLink: " http://fc00.deviantart.net/fs70/f/2013/030/d/6/afking_gif_by_fierying-d5t8c31.gif ",
             rulesLink:" :hammer: http://tinyurl.com/ClubRevolutionZRules",
             themeLink: " :tada: http://tinyurl.com/ClubRevolutionZCurrentEvent",
             fbLink: "https://www.facebook.com/ClubRevolutionZ",
