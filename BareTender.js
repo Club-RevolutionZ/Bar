@@ -1529,7 +1529,7 @@
                 }
             },
             
-            icecreanCommand: {
+            icecreamCommand: {
                 command: 'icecream',
                 rank: 'user',
                 type: 'startsWith',
@@ -1573,12 +1573,12 @@
                 command: 'sweet',
                 rank: 'user',
                 type: 'startsWith',
-                sweets: ['has bought you a sugary sweet!',
-                    'has bought you a milky flavored sweet!',
-                    'has bought you a rotten sweet.'
+                sweets: ['has bought you a sweet!',
+                    'has bought you a sprinkle coated icecream!',
+                    'has bought you a half licked icecream.'
                 ],
                 getSweet: function () {
-                    var c = Math.floor(Math.random() * this.sweet.length);
+                    var c = Math.floor(Math.random() * this.sweets.length);
                     return this.sweets[c];
                 },
                 functionality: function (chat, cmd) {
