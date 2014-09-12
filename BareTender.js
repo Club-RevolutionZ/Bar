@@ -1382,9 +1382,7 @@
                     else {
                         var currentchat = $('#chat-messages').children();
                         for (var i = 0; i < currentchat.length; i++) {
-                            for (var j = 0; j < currentchat[i].classList.length; j++) {
-                                if (currentchat[i].classList[j].indexOf('cid-') == 0)
-                                    API.moderateDeleteChat(currentchat[i].classList[j].substr(4));
+                            API.moderateDeleteChat(currentchat[i].getAttribute("data-cid"));
                             }
                         }
                         return API.sendChat(subChat(basicBot.chat.chatcleared,{name: chat.un}));
@@ -2255,7 +2253,7 @@
                     else {
                         var msg = chat.message;
                         var cycleTime = msg.substring(cmd.length + 1);
-                        if (!isNaN(cycleTime)) {
+                        if (!isNaN(cycleTime)) && cycleTime !== "") {
                             basicBot.settings.maximumCycletime = cycleTime;
                             return API.sendChat(subChat(basicBot.chat.cycleguardtime, {name: chat.un, time: basicBot.settings.maximumCycletime}));
                         }
@@ -2737,7 +2735,7 @@
                     else {
                         var msg = chat.message;
                         var lockTime = msg.substring(cmd.length + 1);
-                        if (!isNaN(lockTime)) {
+                        if (!isNaN(lockTime) && lockTime !== "") {
                             basicBot.settings.maximumLocktime = lockTime;
                             return API.sendChat(subChat(basicBot.chat.lockguardtime, {name: chat.un, time: basicBot.settings.maximumLocktime}));
                         }
@@ -2988,7 +2986,13 @@
                                     position: null,
                                     songCount: 0
                                 };
-                                API.moderateRemoveDJ(user.id);
+                                if(API.getDJ().id === user.id){
+                                    API.moderateForceSkip();
+                                    setTimeout(function(){
+                                        API.moderateRemoveDJ(user.id);
+                                    }, 1*1000, user);
+                                }
+                                else API.moderateRemoveDJ(user.id);
                             } else API.sendChat(subChat(basicBot.chat.removenotinwl, {name: chat.un, username: name}));
                         } else API.sendChat(subChat(basicBot.chat.nouserspecified, {name: chat.un}));
                     }
