@@ -48,6 +48,7 @@
                 }
                 $.get(link, function (json) {
                     if (json !== null && typeof json !== "undefined") {
+                        if(typeof json === "string") json = JSON.parse(json);
                         basicBot.chat = json;
                         cb();
                     }
@@ -56,6 +57,7 @@
             else{
                 $.get(basicBot.chatLink, function (json) {
                     if (json !== null && typeof json !== "undefined") {
+                        if(typeof json === "string") json = JSON.parse(json);
                         basicBot.chat = json;
                         cb();
                     }
@@ -879,7 +881,9 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
-                var joinedroulette = basicBot.chat.roulettejoin.split('%%NAME%%');
+                var rlJoinChat = basicBot.chat.roulettejoin;
+                var rlLeaveChat = basicBot.chat.rouletteleave;
+                var joinedroulette = rlJoinChat.split('%%NAME%%');
                 if(joinedroulette[1].length > joinedroulette[0].length) joinedroulette = joinedroulette[1];
                 else joinedroulette = joinedroulette[0];
 
@@ -2735,7 +2739,7 @@
                         var lockTime = msg.substring(cmd.length + 1);
                         if (!isNaN(lockTime)) {
                             basicBot.settings.maximumLocktime = lockTime;
-                            return API.sendChat(subChat(basicBot.chat.lockguardtime, {name: chat.un, position: basicBot.settings.maximumLocktime}));
+                            return API.sendChat(subChat(basicBot.chat.lockguardtime, {name: chat.un, time: basicBot.settings.maximumLocktime}));
                         }
                         else return API.sendChat(subChat(basicBot.chat.invalidtime, {name: chat.un}));
                     }
