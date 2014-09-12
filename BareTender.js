@@ -123,7 +123,7 @@
     var botCreatorIDs = ["3885577"];
 
     var basicBot = {
-        version: "1.70 Profile TEST",// 
+        version: "1.75 Imaging",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -172,6 +172,8 @@
             opLink: null,
             hiLink: " http://s2.favim.com/orig/36/stitch-Favim.com-298022.gif ",
             byeLink: " http://25.media.tumblr.com/tumblr_m6xj6f6qak1raa31eo1_500.gif ",
+            brbLink: " http://media.giphy.com/media/8OUdE03f3Nauc/giphy.gif "
+            afkLink: " http://fc00.deviantart.net/fs70/f/2013/030/d/6/afking_gif_by_fierying-d5t8c31.gif "
             rulesLink:" :hammer: http://tinyurl.com/ClubRevolutionZRules",
             themeLink: " :tada: http://tinyurl.com/ClubRevolutionZCurrentEvent",
             fbLink: "https://www.facebook.com/ClubRevolutionZ",
@@ -2239,6 +2241,36 @@
                     else {
                         var msg = chat.message;
                         if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.byeLink);
+                        var argument = msg.substring(cmd.length + 1);
+                        
+                    }
+                }
+            },
+            brbCommand: {
+                command: 'brb',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.brbLink);
+                        var argument = msg.substring(cmd.length + 1);
+                        
+                    }
+                }
+            },
+            afkCommand: {
+                command: 'afk',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.afkLink);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
