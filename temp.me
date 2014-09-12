@@ -1,5 +1,6 @@
+!profile @user
 
-Dice roll game
+
 
 Bun http://en.wikipedia.org/wiki/Category:Buns
 http://en.wikipedia.org/wiki/Category:Co?okies
@@ -55,3 +56,28 @@ http://en.wikipedia.org/wiki/Category:Doughnuts
             
             
             
+ switch (rankString) {
+                    case "admin":
+                        rankInt = 10;
+                        break;
+                    case "ambassador":
+                        rankInt = 7;
+                        break;
+                    case "host":
+                        rankInt = 10; //5
+                        break;
+                    case "cohost":
+                        rankInt = 4;
+                        break;
+                    case "manager":
+                        rankInt = 3;
+                        break;
+                    case "bouncer":
+                        rankInt = 2;
+                        break;
+                    case "residentdj":
+                        rankInt = 1;
+                        break;
+                    case "user":
+                        rankInt = 0;
+                        break;
