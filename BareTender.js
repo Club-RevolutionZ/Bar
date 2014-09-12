@@ -1383,7 +1383,6 @@
                         var currentchat = $('#chat-messages').children();
                         for (var i = 0; i < currentchat.length; i++) {
                             API.moderateDeleteChat(currentchat[i].getAttribute("data-cid"));
-                            }
                         }
                         return API.sendChat(subChat(basicBot.chat.chatcleared,{name: chat.un}));
                     }
