@@ -202,7 +202,7 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            hiLink: " HI !!!! https://imageshack.com/a/img537/1306/6blhxN.gif ",
+            hiLink: "http://www.scrapsplanet.com/content/hi-hello/hi-hello-19.gif",
             byeLink: " Bye... https://imageshack.com/a/img661/2023/D8kn6q.gif ",
             brbLink: " https://imageshack.com/a/img745/7239/Z0KJQb.gif ",
             afkLink: " A.F.K https://imageshack.com/a/img661/4941/8XIWfa.gif ",
