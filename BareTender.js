@@ -2410,7 +2410,7 @@
             },
             
             jalbaCommand: {
-                command: 'jesicca_alba',
+                command: 'jessica_alba',
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
