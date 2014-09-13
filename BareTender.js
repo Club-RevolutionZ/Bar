@@ -202,6 +202,7 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
+            orderLink: " ",
             hiLink: "  ",
             byeLink: " ",
             brbLink: "  ",
@@ -1571,7 +1572,7 @@
                     'has bought you nothing, cause he is too cheap.'
                 ],
                 getPizza: function () {
-                    var c = Math.floor(Math.random() * this.pizza.length);
+                    var c = Math.floor(Math.random() * this.pizzas.length);
                     return this.pizzas[c];
                 },
                 functionality: function (chat, cmd) {
