@@ -202,10 +202,10 @@
             etaRestriction: false,
             welcome: true,
             opLink: null,
-            hiLink: " https://imageshack.com/a/img537/1306/6blhxN.gif ",
-            byeLink: "https://imageshack.com/a/img661/2023/D8kn6q.gif ",
-            brbLink: " https://imageshack.com/a/img745/7239/Z0KJQb.gif ",
-            afkLink: " https://imageshack.com/a/img661/4941/8XIWfa.gif ",
+            hiLink: "  ",
+            byeLink: " ",
+            brbLink: "  ",
+            afkLink: "  ",
             rulesLink:" :hammer: http://tinyurl.com/ClubRevolutionZRules",
             themeLink: " :tada: http://tinyurl.com/ClubRevolutionZCurrentEvent",
             fbLink: "https://www.facebook.com/ClubRevolutionZ",
@@ -2130,7 +2130,28 @@
                 type: 'startsWith',
                 punishs: ['HAI-YAH!!!!',
                     'misserably failing to kick you https://imageshack.com/a/img540/9347/VeTD8u.gif',
-                    ' punching you in the face. https://imageshack.com/a/img673/9980/X8jND1.gif'
+                    'shaking you like a baby in the air! https://imageshack.com/a/img913/9183/0y41Gv.gif',
+                    'clobbering your shin! https://imageshack.com/a/img631/4016/VU3ax3.gif',
+                    'tying you up onto a railtrack! https://imageshack.com/a/img904/6752/6e8GnE.gif',
+                    'throwing a pie to your face! https://imageshack.com/a/img901/1997/sTW9Av.gif',
+                    'missing to shoot you at point blank range. What a FAIL! https://imageshack.com/a/img537/4028/9S7ZyR.gif',
+                    'bravely slapping you in the face, like a Gentleman! https://imageshack.com/a/img746/5395/7VupRH.gif',
+                    'shooting himself in the face, at the very last msecond... https://imageshack.com/a/img908/5887/bij6vR.gif',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    ''
+                    HEREME
+                    'punching you in the face. https://imageshack.com/a/img673/9980/X8jND1.gif'
                 ],
                 getPunish: function () {
                     var c = Math.floor(Math.random() * this.punishs.length);
@@ -2350,7 +2371,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('HI !!! ' + basicBot.settings.hiLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('HI !!! https://imageshack.com/a/img537/1306/6blhxN.gif ' /*+ basicBot.settings.hiLink*/);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
@@ -2365,7 +2386,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('Bye... ' + basicBot.settings.byeLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('Bye... https://imageshack.com/a/img661/2023/D8kn6q.gif ' /* + basicBot.settings.byeLink*/);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
@@ -2380,7 +2401,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('B.R.B ' + basicBot.settings.brbLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('B.R.B https://imageshack.com/a/img745/7239/Z0KJQb.gif '/* + basicBot.settings.brbLink*/);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
@@ -2395,7 +2416,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('A.F.K ' + basicBot.settings.afkLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('A.F.K https://imageshack.com/a/img661/4941/8XIWfa.gif ' /*+ basicBot.settings.afkLink*/);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
