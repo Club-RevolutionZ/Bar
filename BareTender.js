@@ -155,7 +155,7 @@
     var botCreatorIDs = ["100210101012"];
 
     var basicBot = {
-        version: "1.75 Imaging",// 
+        version: "1.75 Fighting",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -2350,7 +2350,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.hiLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('HI !!! ' + basicBot.settings.hiLink);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
@@ -2365,7 +2365,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.byeLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('Bye... ' + basicBot.settings.byeLink);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
@@ -2380,7 +2380,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.brbLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('B.R.B ' + basicBot.settings.brbLink);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
@@ -2395,7 +2395,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me ' + basicBot.settings.afkLink);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('A.F.K ' + basicBot.settings.afkLink);
                         var argument = msg.substring(cmd.length + 1);
                         
                     }
