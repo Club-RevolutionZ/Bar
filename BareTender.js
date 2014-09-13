@@ -2087,7 +2087,7 @@
             },
             
             profileCommand: {
-                command: 'profile',
+                command: 'stalk',
                 rank: 'user',
                 type: 'startsWith',
                 profiles: [' https://plug.dj/@/'
@@ -2117,7 +2117,7 @@
                                 return API.sendChat(subChat(basicBot.chat.selfprofile, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.profile, {nameto: user.username, namefrom: chat.un, profile: this.getProfile()}));
+                                return API.sendChat(subChat(basicBot.chat.profile, {nameto: user.username.toLowerCase(), namefrom: chat.un.toLowerCase(), profile: this.getProfile()}));
                             }
                         }
                     }
