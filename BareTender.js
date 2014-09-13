@@ -2409,7 +2409,21 @@
                 }
             },
             
-            
+            jalbaCommand: {
+                command: 'jesicca_alba',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat('Jessica Alba says, "Im taken and in a relationship with Lord_Tryzalot" https://imageshack.com/a/img904/9496/WAEX9h.gif ' /*+ basicBot.settings.afkLink*/);
+                        var argument = msg.substring(cmd.length + 1);
+                        
+                    }
+                }
+            },
 
             filterCommand: {
                 command: 'filter',
@@ -2484,7 +2498,7 @@
 
             kickCommand: {
                 command: 'kick',
-                rank: 'bouncer',
+                rank: 'manager',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
