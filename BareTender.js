@@ -155,7 +155,7 @@
     var botCreatorIDs = ["100210101012"];
 
     var basicBot = {
-        version: "1.75 Fighting",// 
+        version: "1.8",// 
         status: true, //false
         name: "BarTender",
         loggedInID: null,
@@ -197,7 +197,7 @@
             afkRankCheck: "ambassador",
             motdEnabled: true, 
             motdInterval: 1,
-            motd: "Please do our survey, to provide you with more cookies! :cookie: http://tinyurl.com/PlugDJSurvey",
+            motd: "If you do enjoy your stay with us, do checkin with us on !fb What would would like to see in our next event? http://tinyurl.com/ClubRevZFeedback",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
