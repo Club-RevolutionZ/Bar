@@ -2137,20 +2137,6 @@
                     'missing to shoot you at point blank range. What a FAIL! https://imageshack.com/a/img537/4028/9S7ZyR.gif',
                     'bravely slapping you in the face, like a Gentleman! https://imageshack.com/a/img746/5395/7VupRH.gif',
                     'shooting himself in the face, at the very last msecond... https://imageshack.com/a/img908/5887/bij6vR.gif',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    '',
-                    ''
-                    HEREME
                     'punching you in the face. https://imageshack.com/a/img673/9980/X8jND1.gif'
                 ],
                 getPunish: function () {
