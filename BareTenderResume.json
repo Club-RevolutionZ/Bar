@@ -5,8 +5,8 @@
     "datarestored": "Data restored.",
     "greyuser": "Don't you dare tell me what to do! https://imageshack.com/a/img673/1714/nZN7Vc.gif ",
     "bouncer": "How do you expect me to move? I'm only able to bounce!:grin:",
-    "online": "/me I'm a %%BOTNAME%% from v%%VERSION%%. Bar's open! https://imageshack.com/a/img540/1087/am8wbn.gif ",
-
+    "online": "/me the %%BOTNAME%% from Club RevolutionZ. Bar is open for any !order https://imageshack.com/a/img540/1087/am8wbn.gif ",
+"ORIGINALonline": "/me the %%BOTNAME%% from v%%VERSION%%. Bar's open! https://imageshack.com/a/img540/1087/am8wbn.gif ",
 
     "welcome": "/me Welcome to Club RevolutionZ, @%%NAME%% https://imageshack.com/a/img673/7348/hbp1Lj.gif ",
     "welcomeback": "/me Hey @%%NAME%%! What did I tell you about sneaking through that window! https://imageshack.com/a/img537/3931/K5zPZQ.gif ",
