@@ -1931,7 +1931,7 @@
             
             cupcakeCommand: {
                 command: 'cupcake',
-                rank: 'residentdj',
+                rank: 'bouncer',
                 type: 'startsWith',
                 cupcakes: ['has bought you a Chocolate cupcake!',
                     'has bought you a Vanilla flavored cupcake with strawberry creame topping!',
@@ -1981,7 +1981,7 @@
             
             burgerCommand: {
                 command: 'burger',
-                rank: 'residentdj',
+                rank: 'bouncer',
                 type: 'startsWith',
                 burgers: ['has bought you a Chicken burger! ',
                     'has bought you a Cajun Chicken burger! ',
