@@ -768,7 +768,7 @@
                 var remaining = obj.media.duration * 1000;
                 basicBot.room.autoskipTimer = setTimeout(function () {
                     API.moderateForceSkip();
-                }, remaining - 500);
+                }, remaining + 1000);
             }
             storeToStorage();
 
