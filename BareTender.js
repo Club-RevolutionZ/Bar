@@ -227,7 +227,7 @@
             allcommand: true,
             afkInterval: null,
             autoskip: true, //false
-            autoskipTimer: null,
+            autoskipTimer: true,  //null
             autodisableInterval: null,
             autodisableFunc: function () {
                 if (basicBot.status && basicBot.settings.autodisable) {
