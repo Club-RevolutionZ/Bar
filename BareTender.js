@@ -2118,7 +2118,7 @@
                                 return API.sendChat(subChat(basicBot.chat.selfprofile, {name: name}));
                             }
                             else {
-                                return API.sendChat(subChat(basicBot.chat.profile, {nameto: user.username.toLowerCase(), namefrom: chat.un, profile: this.getProfile()}));
+                                return API.sendChat(subChat(basicBot.chat.profile, {nameto: user.username.toLowerCase().replace(" ", "-"), namefrom: chat.un, profile: this.getProfile()}));
                             }
                         }
                     }
