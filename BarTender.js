@@ -197,7 +197,7 @@
             afkRankCheck: "ambassador",
             motdEnabled: true, 
             motdInterval: 1,
-            motd: "If you do enjoy your stay with us, do checkin with us on !fb What would would like to see in our next event? http://tinyurl.com/ClubRevZFeedback",
+            motd: "If you do enjoy your stay with Club RevolutionZ, do checkin with us on FaceBook. !order !fb !theme !site What would you like to see in our next event? http://tinyurl.com/ClubRevZFeedback",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
@@ -1282,7 +1282,7 @@
 
             autoskipCommand: {
                 command: 'autoskip',
-                rank: 'mod',
+                rank: 'bouncer', //mod
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2801,7 +2801,7 @@
 
             motdCommand: {
                 command: 'motd',
-                rank: 'bouncer',
+                rank: 'ba',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
