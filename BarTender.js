@@ -1288,13 +1288,13 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (basicBot.settings.autoskip) {
-                            basicBot.settings.autoskip = !basicBot.settings.autoskip;
+                        if (basicBot.room.autoskip) {
+                            basicBot.room.autoskip = !basicBot.room.autoskip;
                             clearTimeout(basicBot.room.autoskipTimer);
                             return API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': basicBot.chat.autoskip}));
                         }
                         else {
-                            basicBot.settings.autoskip = !basicBot.settings.autoskip;
+                            basicBot.room.autoskip = !basicBot.room.autoskip;
                             return API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.autoskip}));
                         }
                     }
