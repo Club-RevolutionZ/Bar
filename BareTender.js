@@ -715,7 +715,7 @@
                     basicBot.room.users[i].votes.curate++;
                 }
             }
-        },/*
+        },
         eventDjadvance: function (obj) {
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return void (0);
@@ -765,14 +765,14 @@
             };
             clearTimeout(basicBot.room.autoskipTimer);
             if (basicBot.room.autoskip) {
-                var remaining = media.duration * 1000;
+                var remaining = obj.media.duration * 1000;
                 basicBot.room.autoskipTimer = setTimeout(function () {
                     API.moderateForceSkip();
                 }, remaining - 500);
             }
             storeToStorage();
 
-        },*/
+        },
         eventWaitlistupdate: function (users) {
             if (users.length < 50) {
                 if (basicBot.room.queue.id.length > 0 && basicBot.room.queueable) {
