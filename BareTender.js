@@ -1440,7 +1440,7 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            var name = chat.un;
+                            var name = basicBot.userUtilities.lookupUserName(name);
                            API.sendChat(subChat(basicBot.chat.eatcookie, {name: name})); //API.sendChat(basicBot.chat.eatcookie);
                             return false;
                         }
