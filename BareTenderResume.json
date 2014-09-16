@@ -132,7 +132,7 @@
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
     
     
-    "eatcookie": "/me 'I swear the Cookie Jar is hidden somewhere here...' https://imageshack.com/a/img908/4551/foEaRN.gif",
+    "eatcookie": " @%%NAME%% You have just bought a cookie for the BarTender. 'I swear the Cookie Jar is hidden somewhere here...' https://imageshack.com/a/img908/4551/foEaRN.gif",
     "nousercookie": "/me doesn't see %%NAME%% in room and eats the :cookie: by himself. https://imageshack.com/a/img673/5352/7yf28z.gif",
     "selfcookie": "' @%%NAME%% 'Did you just sneak a :cookie: into your mouth? https://imageshack.com/a/img674/1113/D6i21S.gif'",
     "cookie": "/me @%%NAMETO%%, @%%NAMEFROM%% %%COOKIE%%",
