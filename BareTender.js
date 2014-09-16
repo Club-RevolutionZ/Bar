@@ -1440,7 +1440,8 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                           API.sendChat(subChat(basicBot.chat.eatcookie, {name: chat.un})); //API.sendChat(basicBot.chat.eatcookie);
+                            var name = msg.substring(space + 2);
+                           API.sendChat(subChat(basicBot.chat.eatcookie, {name: name})); //API.sendChat(basicBot.chat.eatcookie);
                             return false;
                         }
                         else {
