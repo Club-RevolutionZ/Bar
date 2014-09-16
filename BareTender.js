@@ -1440,13 +1440,13 @@
 
                         var space = msg.indexOf(' ');
                         if (space === -1) {
-                            var name = basicBot.userUtilities.lookupUserName(name);
-                           API.sendChat(subChat(basicBot.chat.eatcookie, {name: chat.un})); //API.sendChat(basicBot.chat.eatcookie);
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                           API.sendChat(subChat(basicBot.chat.eatcookie, {name: name})); //API.sendChat(basicBot.chat.eatcookie);
                             return false;
                         }
                         else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
+                            
                             if (user === false || !user.inRoom) {
                                 return API.sendChat(subChat(basicBot.chat.nousercookie, {name: name}));
                             }
