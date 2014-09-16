@@ -2176,7 +2176,7 @@
                 command: 'roll_dice',
                 rank: 'user',
                 type: 'startsWith',
-                dices: ['has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
+                dices: ['!cookie' /* has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
                     'has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
                     'has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
                     'has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
@@ -2196,7 +2196,7 @@
                     'has rolled a Four. https://imageshack.com/a/img661/6979/xqWXgG.gif',
                     'has rolled a Five! https://imageshack.com/a/img901/2489/2kDsyq.gif',
                     'has rolled a Five! https://imageshack.com/a/img901/2489/2kDsyq.gif',
-                    'has rolled a SIX !!! https://imageshack.com/a/img538/9670/EohWHp.gif'
+                    'has rolled a SIX !!! https://imageshack.com/a/img538/9670/EohWHp.gif' */
                 ],
                 getDice: function () {
                     var c = Math.floor(Math.random() * this.dices.length);
