@@ -2176,7 +2176,7 @@
                 command: 'roll_dice',
                 rank: 'user',
                 type: 'startsWith',
-                dices: ['!cookie' /* has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
+                dices: ['has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
                     'has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
                     'has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
                     'has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
@@ -2196,7 +2196,7 @@
                     'has rolled a Four. https://imageshack.com/a/img661/6979/xqWXgG.gif',
                     'has rolled a Five! https://imageshack.com/a/img901/2489/2kDsyq.gif',
                     'has rolled a Five! https://imageshack.com/a/img901/2489/2kDsyq.gif',
-                    'has rolled a SIX !!! https://imageshack.com/a/img538/9670/EohWHp.gif' */
+                    'has rolled a SIX !!! Contact the Host or Co-host for a prize! https://imageshack.com/a/img538/9670/EohWHp.gif'
                 ],
                 getDice: function () {
                     var c = Math.floor(Math.random() * this.dices.length);
@@ -2223,6 +2223,43 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.dice, {nameto: user.username, namefrom: chat.un, dice: this.getDice()}));
+                            }
+                        }
+                    }
+                }
+            },
+            
+            prizeCommand: {
+                command: 'prize',
+                rank: 'cohost',
+                type: 'startsWith',
+                prizes: ['http://38.media.tumblr.com/47989f8687222cdac6d110c83f5f7479/tumblr_n9kgddpyhw1r6i0nlo1_1280.gif'
+                ],
+                getDice: function () {
+                    var c = Math.floor(Math.random() * this.prizes.length);
+                    return this.prizes[c];
+                },
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+
+                        var space = msg.indexOf(' ');
+                        if (space === -1) {
+                            return API.sendChat(subChat(basicBot.chat.eatprize, {namefrom: chat.un, prize: this.getPrize()}));
+                        }
+                        else {
+                            var name = msg.substring(space + 2);
+                            var user = basicBot.userUtilities.lookupUserName(name);
+                            if (user === false || !user.inRoom) {
+                                return API.sendChat(subChat(basicBot.chat.nouserprize, {namefrom: chat.un, prize: this.getPrize()}));
+                            }
+                            else if (user.username === chat.un) {
+                                return API.sendChat(subChat(basicBot.chat.selfprize, {namefrom: chat.un, prize: this.getPrize()}));
+                            }
+                            else {
+                                return API.sendChat(subChat(basicBot.chat.prize, {nameto: user.username, namefrom: chat.un, prize: this.getPrize()}));
                             }
                         }
                     }
