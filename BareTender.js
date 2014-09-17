@@ -272,6 +272,7 @@
             blacklists: {
             },
             newBlacklisted: [],
+            newBlacklistedSongFunction: null,
             roulette: {
                 rouletteStatus: false,
                 participants: [],
@@ -658,7 +659,6 @@
                         try {
                             (function(l){
                                 $.get(basicBot.settings.blacklists[l], function (data) {
-                                    console.log(data);
                                     if (typeof data === 'string') {
                                         data = JSON.parse(data);
                                     }
@@ -679,7 +679,6 @@
                         }
                     }
                 }
-                setTimeout(function(){console.log(basicBot.room.blacklists)},5000);
             },
             logNewBlacklistedSongs: function () {
                 if (typeof console.table !== 'undefined') {
@@ -1443,15 +1442,19 @@
                         if (typeof basicBot.room.blacklists[list] === 'undefined') return API.sendChat(subChat(basicBot.chat.invalidlistspecified, {name: chat.un}));
                         else {
                             var media = API.getMedia();
-                            basicBot.room.newBlacklisted.push({
+                            var track = {
                                 list: list,
                                 author: media.author,
                                 title: media.title,
                                 mid: media.format + ':' + media.cid
-                            });
+                            };
+                            basicBot.room.newBlacklisted.push(track);
                             basicBot.room.blacklists[list].push(media.format + ':' + media.cid);
                             API.sendChat(subChat(basicBot.chat.newblacklisted, {name: chat.un, blacklist: list, author: media.author,title: media.title, mid: media.format + ':' + media.cid}));
                             API.moderateForceSkip();
+                            if(typeof basicBot.room.newBlacklistedSongFunction === 'function'){
+                                basicBot.room.newBlacklistedSongFunction(track);
+                            }
                         }
                     }
                 }
