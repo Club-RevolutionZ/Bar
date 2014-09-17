@@ -73,6 +73,7 @@
     "brandambassador": "/me A Brand Ambassador is the voice of the plug.dj users. They promote events, engage the community and share the plug.dj message around the world. For more info: http://blog.plug.dj/brand-ambassadors/",
     "bouncerplusrank": "/me @%%NAME%%, you ain't my manager to tell me to operate Bouncer+!:japanese_ogre:",
     "chatcleared": "/me @%%NAME%% Cleared the chat. https://imageshack.com/a/img538/1607/5atJGG.gif ",
+    "deletechat": "/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": " %%BOTNAME%% commands: %%LINK%% https://imageshack.com/a/img631/4568/ZipiV4.gif",
     "eatdrink": "/me You have just bought a Drink for the BarTender. *quietly sips a shot of Vodka* :trollface:",
     "nouserdrink": "/me doesn't see %%NAME%% in room and drinks it himself.:trollface:",
