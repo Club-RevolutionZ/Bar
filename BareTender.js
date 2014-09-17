@@ -183,7 +183,7 @@
             lockGuard: false,
             maximumLocktime: 10,
             cycleGuard: true,
-            maximumCycletime: 1,
+            maximumCycletime: 7,
             timeGuard: true,
             maximumSongLength: 7,
             autodisable: true,
