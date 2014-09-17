@@ -183,9 +183,9 @@
             lockGuard: false,
             maximumLocktime: 10,
             cycleGuard: true,
-            maximumCycletime: 10,
+            maximumCycletime: 7,
             timeGuard: true,
-            maximumSongLength: 7,
+            maximumSongLength: 8,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -2976,7 +2976,7 @@
 
             motdCommand: {
                 command: 'motd',
-                rank: 'host',
+                rank: 'cohost',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
