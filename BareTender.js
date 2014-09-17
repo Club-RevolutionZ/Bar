@@ -1605,7 +1605,7 @@
             },
             
             icecreamCommand: {
-                command: ['icecream','ice cream','icecreams']
+                command: ['icecream','ice cream','icecreams'],
                 rank: 'user',
                 type: 'startsWith',
                 icecreams: ['has bought you a Chocolate flavored icecream in cone.',
