@@ -196,7 +196,7 @@
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
             motdEnabled: true, 
-            motdInterval: 1,
+            motdInterval: 4,
             motd: "If you do enjoy your stay with Club RevolutionZ, do checkin with us on FaceBook. !order !fb !theme !site What would you like to see in our next event? http://tinyurl.com/ClubRevZFeedback",
             filterChat: true,
             etaRestriction: false,
@@ -1303,7 +1303,7 @@
             },
 
             autowootCommand: {
-                command: 'autowoot',
+                command: ['autowoot','woot'],
                 rank: 'user',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -1330,7 +1330,7 @@
 
             banCommand: {
                 command: 'ban',
-                rank: 'bouncer',
+                rank: 'manager',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -1347,7 +1347,7 @@
             },
 
             bouncerPlusCommand: {
-                command: 'bouncer+',
+                command: ['bouncer+','bouncer'],
                 rank: 'mod',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -1375,7 +1375,7 @@
             },
 
             clearchatCommand: {
-                command: 'clearchat',
+                command: ['clearchat','clear'],
                 rank: 'manager',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -1392,7 +1392,7 @@
             },
 
             commandsCommand: {
-                command: 'commands',
+                command: ['commands','cmd','command'],
                 rank: 'user',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -1405,7 +1405,7 @@
             },
             
             cookieCommand: {
-                command: 'cookie',
+                command: ['cookie','cookies'],
                 rank: 'cohost',
                 type: 'startsWith',
                 cookies: ['has bought you a chocolate chip cookie!',
@@ -1462,7 +1462,7 @@
             },
             
             alcoholCommand: {
-                command: 'alcohol',
+                command: ['alcohol','alcohols'],
                 rank: 'cohost',
                 type: 'startsWith',
                 alcohols: ['has bought you a pint of Johny Walker!',
@@ -1511,7 +1511,7 @@
             },
             
             donutCommand: {
-                command: 'donut',
+                command: ['donut','donuts','doughnuts','doughnut'],
                 rank: 'user',
                 type: 'startsWith',
                 donuts: ['has bought you a Chocolate Iced glazed donut!',
@@ -1557,7 +1557,7 @@
             },
             
             pizzaCommand: {
-                command: 'pizza',
+                command: ['pizza','pizzas'],
                 rank: 'residentdj',
                 type: 'startsWith',
                 pizzas: ['has bought you a mini Chicken pizza!',
@@ -1605,7 +1605,7 @@
             },
             
             icecreamCommand: {
-                command: 'icecream',
+                command: ['icecream','ice cream','icecreams']
                 rank: 'user',
                 type: 'startsWith',
                 icecreams: ['has bought you a Chocolate flavored icecream in cone.',
@@ -1655,7 +1655,7 @@
             },
             
             chocolateCommand: {
-                command: 'chocolate',
+                command: ['chocolate','choc','choco','chocolates'],
                 rank: 'residentdj',
                 type: 'startsWith',
                 chocolates: ['has bought you a chocolate chip chocolate!',
@@ -1760,7 +1760,7 @@
             },
             
             friesCommand: {
-                command: 'fries',
+                command: ['fries','french fries','frenchfries'],
                 rank: 'user',
                 type: 'startsWith',
                 friess: ['has bought you a small box of french fries.',
@@ -1834,7 +1834,7 @@
             },
             
             bunCommand: {
-                command: 'bun',
+                command: ['bun','buns'],
                 rank: 'user',
                 type: 'startsWith',
                 buns: ['has bought you a Chocolate flavored bun!',
@@ -1887,7 +1887,7 @@
             },
             
             chipsCommand: {
-                command: 'chips',
+                command: ['chips','chip','potato chips','potatochips'],
                 rank: 'user',
                 type: 'startsWith',
                 chipss: ['has bought you a small bag of Potato chips!',
@@ -1932,7 +1932,7 @@
             },
             
             cupcakeCommand: {
-                command: 'cupcake',
+                command: ['cupcake','cup cake','cupcakes'],
                 rank: 'bouncer',
                 type: 'startsWith',
                 cupcakes: ['has bought you a Chocolate cupcake!',
@@ -1982,7 +1982,7 @@
             },
             
             burgerCommand: {
-                command: 'burger',
+                command: ['burger','burgers'],
                 rank: 'bouncer',
                 type: 'startsWith',
                 burgers: ['has bought you a Chicken burger! ',
@@ -2039,22 +2039,19 @@
             },
             
             drinkCommand: {
-                command: 'drink',
+                command: ['drink','drinks'],
                 rank: 'user',
                 type: 'startsWith',
                 drinks: ['has bought you a cup of Apple juice! ',
                     'has bought you a glass of chilled Cola!!',
                     'has bought you a cup of Cranberry juice!',
-                    'has bought you a pint of Johny Walker!',
-                    'has bought you a glass of Vodka!',
                     'has bought you a cup of Chocolate Milk!',
                     'has bought you a glass of Sprite!',
                     'has bought you a glass of freshly squeezed Orange juice!',
                     'has bought you a glass of freshly squeezed Lemon juice!',
                     'has bought you a glass of plain water. Although it seems to be fizzy....',
                     'has bought you a glass of expired Milk. Oh well, its yoghurt now.',
-                    'has bought you an empty glass...',
-                    'bakes you fresh cookies, it smells amazing.'
+                    'has bought you an empty glass...'
                 ],
                 getDrink: function () {
                     var c = Math.floor(Math.random() * this.drinks.length);
@@ -2089,7 +2086,7 @@
             },
             
             profileCommand: {
-                command: 'stalk',
+                command: ['stalk','stalker','profile'],
                 rank: 'user',
                 type: 'startsWith',
                 profiles: [' https://plug.dj/@/'
@@ -2127,7 +2124,7 @@
             },
             
             punishCommand: {
-                command: 'punish',
+                command: ['punish','slap','kick'],
                 rank: 'bouncer',
                 type: 'startsWith',
                 punishs: ['HAI-YAH!!!!',
@@ -2174,7 +2171,7 @@
             },
             
             diceCommand: {
-                command: 'roll_dice',
+                command: ['roll_dice','dice','roll'],
                 rank: 'user',
                 type: 'startsWith',
                 dices: ['has rolled an One. https://imageshack.com/a/img538/9612/nkX6X3.gif',
@@ -2373,7 +2370,7 @@
                 }
             },
             fbCommand: {
-                command: 'fb',
+                command: ['fb','facebook'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
@@ -2388,7 +2385,7 @@
                 }
             },
             orderCommand: {
-                command: 'order',
+                command: ['order','food'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
@@ -2403,7 +2400,7 @@
                 }
             },
             hiCommand: {
-                command: 'hi',
+                command: ['hi','hello'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
@@ -2418,7 +2415,7 @@
                 }
             },
             byeCommand: {
-                command: 'bye',
+                command: ['bye','by'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
@@ -2552,7 +2549,7 @@
 
             kickCommand: {
                 command: 'kick',
-                rank: 'manager',
+                rank: 'host',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2631,7 +2628,7 @@
             },
 
             linkCommand: {
-                command: 'link',
+                command: ['link','song'],
                 rank: 'user',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -2839,7 +2836,7 @@
 
             motdCommand: {
                 command: 'motd',
-                rank: 'ba',
+                rank: 'host',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2993,7 +2990,7 @@
             },
 
             pingCommand: {
-                command: 'ping',
+                command: ['ping','test'],
                 rank: 'user',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -3007,7 +3004,7 @@
 
             refreshCommand: {
                 command: 'refresh',
-                rank: 'manager',
+                rank: 'host',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3025,7 +3022,7 @@
 
             reloadCommand: {
                 command: 'reload',
-                rank: 'bouncer',
+                rank: 'cohost',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3109,7 +3106,7 @@
             },
             
             rulesCommand: {
-                command: 'rules',
+                command: ['rules','rule'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
@@ -3284,7 +3281,7 @@
                 }
             },
             themeCommand: {
-                command: 'theme',
+                command: ['theme','genre'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
@@ -3322,7 +3319,7 @@
 
             togglemotdCommand: {
                 command: 'togglemotd',
-                rank: 'bouncer',
+                rank: 'cohost',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3526,7 +3523,7 @@
             },
             
             websiteCommand: {
-                command: 'site',
+                command: ['site','website'],
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
