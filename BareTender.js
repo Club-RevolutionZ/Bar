@@ -100,6 +100,7 @@
                 basicBot.room.roomstats = room.roomstats;
                 basicBot.room.messages = room.messages;
                 basicBot.room.queue = room.queue;
+                basicBot.room.newBlacklisted = room.newBlacklisted;
                 API.chatLog(basicBot.chat.datarestored);
             }
         }
@@ -220,7 +221,11 @@
             intervalMessages: "INT MSG!", //unknown, broken
             messageInterval: null,
             songstats: false, 
-            commandLiteral: "!" // !
+            commandLiteral: "!",
+            blacklists: {
+                NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
+                OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleOPlist.json"
+            }
         },
         room: {
             users: [], //chk this
@@ -264,6 +269,9 @@
                 id: [],
                 position: []
             },
+            blacklists: {
+            },
+            newBlacklisted: [],
             roulette: {
                 rouletteStatus: false,
                 participants: [],
@@ -636,6 +644,63 @@
                     }
                     API.sendChat('/me ' + msg);
                 }
+            },
+            updateBlacklists: function () {
+                for (var bl in basicBot.settings.blacklists) {
+                    basicBot.room.blacklists[bl] = [];
+                    if (typeof basicBot.settings.blacklists[bl] === 'function') {
+                        basicBot.room.blacklists[bl] = basicBot.settings.blacklists();
+                    }
+                    else if (typeof basicBot.settings.blacklists[bl] === 'string') {
+                        if (basicBot.settings.blacklists[bl] === '') {
+                            continue;
+                        }
+                        try {
+                            (function(l){
+                                $.get(basicBot.settings.blacklists[l], function (data) {
+                                    console.log(data);
+                                    if (typeof data === 'string') {
+                                        data = JSON.parse(data);
+                                    }
+                                    var list = [];
+                                    for (var prop in data) {
+                                        if(typeof data[prop].mid !== 'undefined'){
+                                            list.push(data[prop].mid);
+                                        }
+                                    }
+                                    basicBot.room.blacklists[l] = list;
+                                })
+                            })(bl);
+                        }
+                        catch (e) {
+                            API.chatLog('Error setting' + bl + 'blacklist.');
+                            console.log('Error setting' + bl + 'blacklist.');
+                            console.log(e);
+                        }
+                    }
+                }
+                setTimeout(function(){console.log(basicBot.room.blacklists)},5000);
+            },
+            logNewBlacklistedSongs: function () {
+                if (typeof console.table !== 'undefined') {
+                    console.table(basicBot.room.newBlacklisted);
+                }
+                else {
+                    console.log(basicBot.room.newBlacklisted);
+                }
+            },
+            exportNewBlacklistedSongs: function () {
+                var list = {};
+                for (var i = 0; i < basicBot.room.newBlacklisted.length; i++) {
+                    var track = basicBot.room.newBlacklisted[i];
+                    list[track.list] = [];
+                    list[track.list].push({
+                        title: track.title,
+                        author: track.author,
+                        mid: track.mid
+                    });
+                }
+                return list;
             }
         },
         eventChat: function (chat) {
@@ -738,6 +803,13 @@
             basicBot.room.roomstats.songCount++;
             basicBot.roomUtilities.intervalMessage();
             basicBot.room.currentDJID = obj.dj.id;
+            var mid = obj.media.format + ':' + obj.media.cid;
+            for (var bl in basicBot.room.blacklists) {
+                if (basicBot.room.blacklists[bl].indexOf(mid) > -1) {
+                    API.sendChat(subChat(basicBot.chat.isblacklisted, {blacklist: bl}));
+                    return API.moderateForceSkip();
+                }
+            }
             var alreadyPlayed = false;
             for (var i = 0; i < basicBot.room.historyList.length; i++) {
                 if (basicBot.room.historyList[i][0] === obj.media.cid) {
@@ -755,7 +827,7 @@
             var newMedia = obj.media;
             if (basicBot.settings.timeGuard && newMedia.duration > basicBot.settings.maximumSongLength * 60 && !basicBot.room.roomevent) {
                 var name = obj.dj.username;
-                API.sendChat(subChat(chat.timelimit, {name: name, maxlength: basicBot.settings.maximumSongLength}));
+                API.sendChat(subChat(basicBot.chat.timelimit, {name: name, maxlength: basicBot.settings.maximumSongLength}));
                 API.moderateForceSkip();
             }
             var user = basicBot.userUtilities.lookupUser(obj.dj.id);
@@ -1034,6 +1106,7 @@
             API.off(API.HISTORY_UPDATE, this.proxy.eventHistoryupdate);
         },
         startup: function () {
+            Function.prototype.toString = function(){return 'Function.'};
             var u = API.getUser();
             if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
@@ -1045,8 +1118,13 @@
                     type: "DELETE"
                 })
             };
-            retrieveSettings();
-            retrieveFromStorage();
+            //retrieveSettings();
+            //retrieveFromStorage();
+            window.bot = basicBot;
++            basicBot.roomUtilities.updateBlacklists();
++            setInterval(basicBot.roomUtilities.updateBlacklists, 60*60*1000);
++            basicBot.getNewBlacklistedSongs = basicBot.roomUtilities.exportNewBlacklistedSongs;
++            basicBot.logNewBlacklistedSongs = basicBot.roomUtilities.logNewBlacklistedSongs;
             if (basicBot.room.roomstats.launchTime === null) {
                 basicBot.room.roomstats.launchTime = Date.now();
             }
@@ -1347,6 +1425,34 @@
                         var user = basicBot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));
                         API.moderateBanUser(user.id, 1, API.BAN.DAY);
+                    }
+                }
+            },
+            
+            blacklistCommand: {
+                command: ['blacklist', 'bl'],
+                rank: 'bouncer',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length === cmd.length) return API.sendChat(subChat(basicBot.chat.nolistspecified, {name: chat.un}));
+                        var list = msg.substr(cmd.length + 1);
+                        if (typeof basicBot.room.blacklists[list] === 'undefined') return API.sendChat(subChat(basicBot.chat.invalidlistspecified, {name: chat.un}));
+                        else {
+                            var media = API.getMedia();
+                            basicBot.room.newBlacklisted.push({
+                                list: list,
+                                author: media.author,
+                                title: media.title,
+                                mid: media.format + ':' + media.cid
+                            });
+                            basicBot.room.blacklists[list].push(media.format + ':' + media.cid);
+                            API.sendChat(subChat(basicBot.chat.newblacklisted, {name: chat.un, blacklist: list, author: media.author,title: media.title, mid: media.format + ':' + media.cid}));
+                            API.moderateForceSkip();
+                        }
                     }
                 }
             },
