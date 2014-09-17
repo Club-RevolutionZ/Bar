@@ -884,11 +884,12 @@
                 }
                 var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
+
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
                 if(joinedroulette[1].length > joinedroulette[0].length) joinedroulette = joinedroulette[1];
                 else joinedroulette = joinedroulette[0];
 
-                var leftroulette = basicBot.chat.rouletteleave.split('%%NAME%%');
+                var leftroulette = rlLeaveChat.split('%%NAME%%');
                 if(leftroulette[1].length > leftroulette[0].length) leftroulette = leftroulette[1];
                 else leftroulette = leftroulette[0];
 
