@@ -38,7 +38,7 @@
 
     var loadChat = function(cb){
         if(!cb) cb = function(){};
-        $.get("https://rawgit.com/Club-RevolutionZ/Bar/master/BareTenderDictionary.json", function(json){
+        $.get("https://cdn.jsdelivr.net/gh/Club-RevolutionZ/Bar/BareTenderDictionary.json", function(json){
             var link = basicBot.chatLink;
             if(json !== null && typeof json !== "undefined"){
                 langIndex = json;
@@ -165,16 +165,16 @@
         status: true, //false
         name: "BarTender",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Club-RevolutionZ/Bar/master/BareTender.js",
+        scriptLink: "https://cdn.jsdelivr.net/gh/Club-RevolutionZ/Bar/BareTender.js",
         cmdLink: "https://github.com/Club-RevolutionZ/Bar/blob/master/BartenderJobScope.me",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+        chatLink: "https://cdn.jsdelivr.net/gh/Yemasthui/basicBot/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         settings: {
             botName: "BarTender",
             language: "english",
-            chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+            chatLink: "https://cdn.jsdelivr.net/gh/Yemasthui/basicBot/lang/en.json",
             maximumAfk: 120,
             afkRemoval: true,
             maximumDc: 60,
